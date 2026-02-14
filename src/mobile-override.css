@@ -1,0 +1,405 @@
+/* MOBILE OVERRIDE CSS - FORCE ALL CHANGES */
+/* This file FORCES mobile changes with maximum specificity */
+
+/* FORCE NO TRANSITIONS ON HEADER AND CATEGORIES NAV */
+.header,
+.header *,
+.categories-nav,
+.categories-nav *,
+.category-item,
+.category-item *,
+.icon-wrapper,
+.icon-wrapper * {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* FORCE category icon circles to NEVER change size */
+.category-item .icon-wrapper > div:first-child,
+.category-item [style*="border-radius: 50%"],
+.category-item [style*="borderRadius"] {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+/* 0. FORCE ALL CIRCLES TO BE CIRCLES - NOT OVALS */
+@media screen and (max-width: 768px) {
+    /* Force aspect ratio on ALL circular elements - EXCEPT category icons */
+    .nav-icon,
+    #profile-btn,
+    .user-avatar,
+    .avatar,
+    .avatar-circle,
+    .profile-avatar,
+    .vendor-avatar,
+    .user-icon,
+    .notification-badge,
+    .step-number-circle,
+    .overview-number,
+    .search-btn-compact,
+    .clear-field-btn,
+    .use-location-btn {
+        aspect-ratio: 1 / 1 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Ensure width and height are equal for circles */
+    .search-btn-compact {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+/* 1. FORCE HEADER LAYOUT ON MOBILE */
+@media screen and (max-width: 768px) {
+    /* FORCE header layout */
+    .header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0.5rem 0.75rem !important;
+        gap: 0.5rem !important;
+    }
+    
+    /* FORCE logo smaller on mobile */
+    .header .logo img,
+    .header-logo-img {
+        height: 28px !important;
+        width: auto !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* FORCE HIDE vendor buttons */
+    .become-vendor-btn,
+    .complete-profile-btn,
+    .switch-to-hosting-btn {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* FORCE user nav to right - don't squish */
+    .user-nav {
+        margin-left: auto !important;
+        display: flex !important;
+        gap: 0.5rem !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        width: auto !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* FORCE search container proper sizing - not squished */
+    .search-container {
+        flex: 1 1 auto !important;
+        min-width: 120px !important;
+        max-width: none !important;
+        margin: 0 0.5rem !important;
+    }
+    
+    /* FORCE enhanced search bar proper height */
+    .enhanced-search-bar {
+        min-height: 36px !important;
+        max-height: 36px !important;
+        border-radius: 20px !important;
+    }
+    
+    .compact-view {
+        min-height: 34px !important;
+        max-height: 34px !important;
+        padding: 4px 8px !important;
+    }
+    
+    /* FORCE HIDE other nav icons */
+    .user-nav #wishlist-btn,
+    .user-nav #chat-btn,
+    .user-nav #notifications-btn {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* FORCE HIDE user icon on mobile - it's in the bottom nav */
+    .user-nav #profile-btn {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* FORCE HIDE user menu button (hamburger + avatar) on mobile - Account is in bottom nav */
+    .user-menu-button {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* FORCE nav icons proper circle */
+    .nav-icon {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        border-radius: 50% !important;
+        aspect-ratio: 1 / 1 !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+/* 2. FORCE SEARCH BAR PROPER SIZE ON MOBILE */
+@media screen and (max-width: 768px) {
+    /* FORCE enhanced search bar proper size - not squished */
+    .enhanced-search-bar {
+        border: 1px solid #e5e5e5 !important;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+        min-height: 36px !important;
+        max-height: 36px !important;
+        border-radius: 20px !important;
+    }
+    
+    /* FORCE compact view proper size */
+    .compact-view {
+        padding: 4px 6px 4px 10px !important;
+        min-height: 34px !important;
+        max-height: 34px !important;
+        align-items: center !important;
+        display: flex !important;
+        width: 100% !important;
+    }
+    
+    /* FORCE compact fields to show */
+    .compact-field {
+        padding: 2px 4px !important;
+        display: flex !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+    
+    /* FORCE compact text readable and visible */
+    .compact-value {
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        color: #333 !important;
+        display: block !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    /* FORCE compact separator */
+    .compact-separator {
+        font-size: 10px !important;
+        color: #ddd !important;
+        padding: 0 3px !important;
+    }
+    
+    /* FORCE search button proper circle */
+    .search-btn-compact {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+        font-size: 11px !important;
+        background: var(--primary, #4F86E8) !important;
+        border-radius: 50% !important;
+        aspect-ratio: 1 / 1 !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+/* 3. FORCE VENDOR CARDS TO LOOK EXACTLY LIKE DESKTOP */
+@media screen and (max-width: 768px) {
+    /* FORCE vendor cards to match desktop exactly */
+    .vendor-card {
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        transition: transform .35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        transform: translateY(0) scale(1) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+    }
+    
+    /* FORCE vendor card hover effect - no animation */
+    .vendor-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* FORCE all vendor card elements clean - NO BORDERS */
+    .vendor-card,
+    .vendor-card *,
+    .vendor-card > div,
+    .vendor-card > div > div,
+    .vendor-card-content,
+    .vendor-card-content > div,
+    .vendor-card-content *,
+    .vendor-card div,
+    .vendor-card span,
+    .vendor-card p {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* FORCE vendor card content to match desktop */
+    .vendor-card-content {
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        padding: 10px 0 4px 0 !important;
+    }
+    
+    /* FORCE vendor card text to match desktop EXACTLY */
+    .vendor-card .vendor-card-business-name {
+        font-size: 15px !important;
+        color: #222222 !important;
+        font-weight: 600 !important;
+    }
+    
+    .vendor-card .vendor-card-location {
+        font-size: 13px !important;
+        color: #717171 !important;
+        font-weight: 400 !important;
+    }
+    
+    .vendor-card .vendor-card-price-row {
+        font-size: 13px !important;
+    }
+    
+    /* FORCE analytics badge to keep its inline color (orange/red for views) */
+    .vendor-card .vendor-card-analytics-badge {
+        font-size: 13px !important;
+        font-weight: 500 !important;
+    }
+    
+    
+    /* FORCE vendor grid to be clean like desktop - fixed width cards */
+    .vendor-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, 160px) !important;
+        gap: 0.75rem !important;
+        padding: 1rem 0 !important;
+        justify-content: start !important;
+    }
+    
+    .vendor-grid .vendor-card {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        width: 100% !important;
+    }
+    
+    /* FORCE image container to match desktop - SQUARE 1:1 aspect ratio */
+    .vendor-card > div:first-child {
+        position: relative !important;
+        width: 100% !important;
+        padding-top: 100% !important;
+        overflow: hidden !important;
+        border-radius: 12px !important;
+        border: none !important;
+        outline: none !important;
+    }
+}
+
+/* 4. FORCE MOBILE MAP BUTTON AND FIX MAP LOADING */
+@media screen and (max-width: 768px) {
+    /* FORCE hide desktop map sidebar */
+    .map-sidebar {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* FORCE hide desktop map toggle */
+    .desktop-map-toggle {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* Mobile map button - show floating button on mobile */
+    .mobile-map-button {
+        display: flex !important;
+        visibility: visible !important;
+        position: fixed !important;
+        bottom: 80px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: #4F86E8 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 24px !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+        align-items: center !important;
+        gap: 8px !important;
+        box-shadow: 0 4px 12px rgba(79, 134, 232, 0.4) !important;
+        z-index: 999998 !important;
+    }
+    
+    /* FORCE mobile map modal to work properly */
+    .mobile-map-modal {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: white !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    /* FORCE map view to load properly */
+    #map-view {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background-color: #e5e3df !important;
+    }
+    
+    /* FORCE content wrapper to be single column on mobile */
+    .content-wrapper {
+        display: block !important;
+        flex-direction: column !important;
+    }
+    
+    .content-wrapper .main-content {
+        width: 100% !important;
+        flex: none !important;
+    }
+}
+
+/* FORCE OVERRIDE ANY CONFLICTING STYLES */
+@media screen and (max-width: 768px) {
+    /* Remove any borders that might appear */
+    * {
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    /* Ensure no blue outlines */
+    *:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Force clean inputs */
+    input:focus {
+        outline: none !important;
+        border-color: #ccc !important;
+        box-shadow: none !important;
+    }
+}
+

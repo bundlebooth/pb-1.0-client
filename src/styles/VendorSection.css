@@ -1,0 +1,661 @@
+/* =============================================
+   VENDOR DISCOVERY SECTIONS
+   Airbnb-style grouped vendor listings
+   ============================================= */
+
+/* =============================================
+   AIRBNB-STYLE ROW - 8 Cards Per Row (Desktop)
+   ============================================= */
+.airbnb-row-container {
+  width: 100% !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.airbnb-card-row {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+
+.airbnb-card-cell {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.airbnb-card-cell .vendor-card,
+.airbnb-card-cell > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Responsive breakpoints no longer needed - using auto-fill with minmax */
+
+.vendor-discovery-sections {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 0;
+}
+
+.vendor-section {
+  margin-bottom: 1.25rem;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.vendor-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0;
+  width: 100%;
+}
+
+.vendor-section-title-wrapper {
+  flex: 1;
+}
+
+.vendor-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222222;
+  margin: 0;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.vendor-section-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.vendor-section-icon i {
+  font-size: 0.75rem;
+}
+
+.vendor-section-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vendor-section-show-all {
+  background: none;
+  border: none;
+  color: #222222;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.vendor-section-show-all:hover {
+  text-decoration: underline;
+}
+
+.vendor-section-description {
+  font-size: 0.75rem;
+  color: #717171;
+  margin: 0.15rem 0 0 0;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.vendor-section-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.vendor-section-nav-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #DDDDDD;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #222222;
+  font-size: 0.65rem;
+  box-shadow: 0 0 0 1px transparent;
+}
+
+.vendor-section-nav-btn:hover:not(:disabled) {
+  border-color: #222222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  transform: scale(1.04);
+}
+
+.vendor-section-nav-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.vendor-section-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #EBEBEB;
+}
+
+.vendor-section-scroll-container {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.vendor-section-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Airbnb-style grid row - 8 cards per row */
+.vendor-section-grid-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.vendor-section-card-item {
+  min-width: 0;
+}
+
+.vendor-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 220px);
+  gap: 1.25rem 1rem;
+  width: 100%;
+  padding: 0;
+  justify-content: start;
+}
+
+.vendor-section-card-wrapper {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Large Desktop: 8 cards per row */
+@media (min-width: 1400px) {
+  .vendor-section-grid-row {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* Desktop: 6 cards per row */
+@media (min-width: 1100px) and (max-width: 1399px) {
+  .vendor-section-grid-row {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Tablet landscape: 5 cards per row */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .vendor-section-grid-row {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Tablet: 4 cards per row */
+@media (min-width: 769px) and (max-width: 899px) {
+  .vendor-section-grid-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Remove gap between sections on mobile */
+  .vendor-section {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .vendor-discovery-sections {
+    gap: 0 !important;
+  }
+  
+  .vendor-section-title {
+    font-size: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .vendor-section-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+  }
+  
+  .vendor-section-icon i {
+    font-size: 0.75rem;
+  }
+  
+  .vendor-section-show-all {
+    font-size: 0.75rem;
+  }
+  
+  .vendor-section-nav {
+    display: flex;
+  }
+  
+  /* =============================================
+     MOBILE CAROUSEL - FULL WIDTH EDGE-TO-EDGE
+     ============================================= */
+  .vendor-section-scroll-container {
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    scroll-snap-type: x mandatory !important;
+  }
+  
+  .vendor-section-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Carousel track - NO padding/margin */
+  .vendor-section-grid-row,
+  .vendor-section-carousel {
+    display: flex !important;
+    grid-template-columns: none !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    transform: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: max-content !important;
+  }
+  
+  /* Card sizing: 44vw = 2 cards + peek of third */
+  .vendor-section-grid-row > div,
+  .vendor-section-carousel > div,
+  .vendor-section-card-item {
+    flex: 0 0 44vw !important;
+    width: 44vw !important;
+    min-width: 44vw !important;
+    max-width: 44vw !important;
+    scroll-snap-align: start !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .vendor-section-title {
+    font-size: 0.95rem;
+    gap: 0.5rem;
+  }
+  
+  .vendor-section-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+  }
+  
+  .vendor-section-icon i {
+    font-size: 0.7rem;
+  }
+  
+  .vendor-section-show-all {
+    font-size: 0.7rem;
+  }
+  
+  /* Carousel track - no padding */
+  .vendor-section-carousel,
+  .vendor-section-grid-row {
+    gap: 8px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .vendor-section-scroll-container {
+    scroll-padding-left: 0 !important;
+  }
+  
+  /* 44vw cards = 2 visible + peek */
+  .vendor-section-carousel > div,
+  .vendor-section-grid-row > div,
+  .vendor-section-card-item {
+    flex: 0 0 44vw !important;
+    width: 44vw !important;
+    min-width: 44vw !important;
+    max-width: 44vw !important;
+  }
+}
+
+/* Loading skeleton for discovery sections */
+.vendor-section-skeleton {
+  margin-bottom: 3rem;
+}
+
+.vendor-section-skeleton .vendor-section-header {
+  margin-bottom: 1.5rem;
+}
+
+.vendor-section-skeleton .skeleton-title {
+  height: 32px;
+  width: 280px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.vendor-section-skeleton .skeleton-description {
+  height: 20px;
+  width: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+.vendor-section-skeleton .skeleton-cards {
+  display: flex;
+  gap: 1.25rem;
+  overflow: hidden;
+}
+
+.vendor-section-skeleton .skeleton-card {
+  flex: 0 0 260px;
+  height: 380px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Premium badge styling for discovery sections */
+.vendor-section .vendor-card .premium-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  z-index: 2;
+}
+
+/* Trending indicator */
+.vendor-section .trending-indicator {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #FF385C;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(255, 56, 92, 0.3);
+  z-index: 2;
+}
+
+.vendor-section .trending-indicator i {
+  font-size: 0.7rem;
+}
+
+/* Responsive indicator */
+.vendor-section .responsive-indicator {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #00A699;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(0, 166, 153, 0.3);
+  z-index: 2;
+}
+
+/* New vendor badge */
+.vendor-section .new-vendor-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #34D399;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(52, 211, 153, 0.3);
+  z-index: 2;
+}
+
+/* Smooth scroll behavior */
+.vendor-section-scroll-container {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.vendor-section-nav-btn:focus {
+  outline: 2px solid #4F86E8;
+  outline-offset: 2px;
+}
+
+.vendor-section-card-wrapper:focus-within {
+  outline: 2px solid #4F86E8;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* =============================================
+   MODAL STYLES
+   ============================================= */
+
+.vendor-section-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.vendor-section-modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 1400px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.vendor-section-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.vendor-section-modal-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222222;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.vendor-section-modal-header .vendor-section-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+
+.vendor-section-modal-header .vendor-section-icon i {
+  font-size: 1.25rem;
+}
+
+.vendor-section-modal-close {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+}
+
+.vendor-section-modal-close:hover {
+  background: #f3f4f6;
+  color: #222222;
+}
+
+.vendor-section-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+.vendor-section-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 220px);
+  gap: 1.25rem 1rem;
+  justify-content: start;
+}
+
+/* No animation for vendor cards in modal - immediate display */
+.vendor-section-modal-grid > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .vendor-section-modal-overlay {
+    padding: 0;
+  }
+  
+  .vendor-section-modal {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+  
+  .vendor-section-modal-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .vendor-section-modal-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .vendor-section-modal-content {
+    padding: 1rem;
+  }
+  
+  .vendor-section-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+}

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanBeau Email Templates - Complete Preview (69 Templates)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; }
+        .layout { display: flex; min-height: 100vh; }
+        .sidebar { width: 280px; background: #1a1a2e; color: white; padding: 20px; position: fixed; height: 100vh; overflow-y: auto; }
+        .sidebar h1 { font-size: 18px; margin-bottom: 20px; color: #667eea; }
+        .sidebar h2 { font-size: 12px; text-transform: uppercase; color: #888; margin: 20px 0 10px; letter-spacing: 1px; }
+        .sidebar a { display: block; color: #ccc; text-decoration: none; padding: 8px 12px; border-radius: 6px; font-size: 13px; margin: 2px 0; transition: all 0.2s; }
+        .sidebar a:hover { background: rgba(102,126,234,0.2); color: white; }
+        .main { margin-left: 280px; padding: 40px; flex: 1; }
+        .template-card { background: white; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); overflow: hidden; }
+        .template-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; }
+        .template-header h3 { font-size: 18px; margin-bottom: 5px; }
+        .template-header .category { font-size: 12px; opacity: 0.8; text-transform: uppercase; }
+        .template-body { padding: 0; }
+        .email-preview { border: 1px solid #e0e0e0; margin: 20px; border-radius: 8px; overflow: hidden; }
+        .email-content { background: white; }
+        .email-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; }
+        .email-header h1 { color: white; font-size: 28px; margin: 0; }
+        .email-header p { color: rgba(255,255,255,0.9); margin: 10px 0 0; font-size: 14px; }
+        .email-body { padding: 40px 20px; background: white; }
+        .email-body h2 { color: #333; margin: 0 0 20px; }
+        .email-body p { color: #666; margin: 0 0 20px; line-height: 1.6; }
+        .email-footer { background: #f8f9fa; padding: 30px 20px; text-align: center; border-top: 1px solid #e9ecef; }
+        .email-footer p { color: #6c757d; font-size: 14px; margin: 0 0 10px; }
+        .email-footer a { color: #667eea; }
+        .btn { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 14px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; }
+        .btn-danger { background: #dc3545; }
+        .btn-success { background: #28a745; }
+        .info-box { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea; margin: 0 0 30px; }
+        .info-box.success { background: #d4edda; border-color: #28a745; }
+        .info-box.warning { background: #fff3cd; border-color: #ffc107; }
+        .info-box.danger { background: #f8d7da; border-color: #dc3545; }
+        .code-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 8px; text-align: center; margin: 0 0 30px; }
+        .code-box span { color: white; font-size: 32px; font-weight: bold; letter-spacing: 8px; }
+        .summary { background: #1a1a2e; color: white; padding: 40px; border-radius: 12px; margin-top: 40px; }
+        .summary h2 { color: #667eea; margin-bottom: 20px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .summary-item { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; text-align: center; }
+        .summary-item .number { font-size: 36px; font-weight: bold; color: #667eea; }
+        .summary-item .label { font-size: 14px; color: #888; }
+    </style>
+</head>
+<body>
+<div class="layout">
+    <nav class="sidebar">
+        <h1>PlanBeau Email Templates</h1>
+        <p style="font-size:12px;color:#888;margin-bottom:20px;">69 Total Templates</p>
+        
+        <h2>Authentication (5)</h2>
+        <a href="#auth_2fa">2FA Verification</a>
+        <a href="#password_reset">Password Reset</a>
+        <a href="#password_changed">Password Changed</a>
+        <a href="#email_verification">Email Verification</a>
+        <a href="#login_new_device">Login New Device</a>
+        
+        <h2>Booking (15)</h2>
+        <a href="#booking_request_vendor">Booking Request</a>
+        <a href="#booking_accepted_client">Booking Accepted</a>
+        <a href="#booking_rejected_client">Booking Rejected</a>
+        <a href="#booking_confirmed_client">Confirmed (Client)</a>
+        <a href="#booking_confirmed_vendor">Confirmed (Vendor)</a>
+        <a href="#booking_cancelled_client">Cancelled (Client)</a>
+        <a href="#booking_cancelled_vendor">Cancelled (Vendor)</a>
+        <a href="#booking_rescheduled">Rescheduled</a>
+        <a href="#event_reminder">Event Reminder</a>
+        <a href="#booking_action_reminder">Action Reminder</a>
+        <a href="#booking_reminder_24h">Reminder 24h</a>
+        <a href="#booking_reminder_1_week">Reminder 1 Week</a>
+        <a href="#quote_received">Quote Received</a>
+        <a href="#booking_deposit_due">Deposit Due</a>
+        <a href="#event_completed">Event Completed</a>
+        
+        <h2>Messaging (4)</h2>
+        <a href="#message_vendor_to_client">Vendor to Client</a>
+        <a href="#message_client_to_vendor">Client to Vendor</a>
+        <a href="#unread_messages_reminder">Unread Messages</a>
+        <a href="#chat_summary">Chat Summary</a>
+        
+        <h2>Payment (9)</h2>
+        <a href="#payment_received_vendor">Payment Received</a>
+        <a href="#payment_confirmation_client">Payment Confirmation</a>
+        <a href="#payment_failed">Payment Failed</a>
+        <a href="#invoice_sent">Invoice Sent</a>
+        <a href="#refund_processed">Refund Processed</a>
+        <a href="#payout_processed">Payout Processed</a>
+        <a href="#receipt">Receipt</a>
+        <a href="#final_payment_due">Final Payment Due</a>
+        <a href="#subscription_renewal_reminder">Subscription Renewal</a>
+        
+        <h2>Vendor (10)</h2>
+        <a href="#vendor_application_admin">Application (Admin)</a>
+        <a href="#vendor_welcome">Vendor Welcome</a>
+        <a href="#vendor_approved">Vendor Approved</a>
+        <a href="#vendor_rejected">Vendor Rejected</a>
+        <a href="#vendor_inactivity">Vendor Inactivity</a>
+        <a href="#analytics_summary">Analytics Summary</a>
+        <a href="#vendor_profile_incomplete">Profile Incomplete</a>
+        <a href="#vendor_featured">Vendor Featured</a>
+        <a href="#client_to_vendor">Client to Vendor</a>
+        <a href="#client_to_vendor_welcome">Client to Vendor Welcome</a>
+        
+        <h2>Client (4)</h2>
+        <a href="#client_welcome">Client Welcome</a>
+        <a href="#user_inactivity">User Inactivity</a>
+        <a href="#favorite_vendor_available">Favorite Available</a>
+        <a href="#subscription_cancelled">Subscription Cancelled</a>
+        
+        <h2>Reviews (3)</h2>
+        <a href="#review_request">Review Request</a>
+        <a href="#new_review_received">New Review Received</a>
+        
+        <h2>Support (7)</h2>
+        <a href="#support_ticket_opened">Ticket Opened</a>
+        <a href="#support_ticket_in_progress">Ticket In Progress</a>
+        <a href="#support_ticket_closed">Ticket Closed</a>
+        <a href="#support_ticket_reply">Ticket Reply</a>
+        <a href="#support_message_received">Message Received</a>
+        <a href="#new_support_message">New Support Message</a>
+        <a href="#policy_warning">Policy Warning</a>
+        
+        <h2>Account (7)</h2>
+        <a href="#account_locked">Account Locked</a>
+        <a href="#account_unlocked">Account Unlocked</a>
+        <a href="#account_suspended">Account Suspended</a>
+        <a href="#account_reactivated">Account Reactivated</a>
+        <a href="#account_deletion_requested">Deletion Requested</a>
+        
+        <h2>Disputes (2)</h2>
+        <a href="#dispute_opened">Dispute Opened</a>
+        <a href="#dispute_resolved">Dispute Resolved</a>
+        
+        <h2>Marketing (4)</h2>
+        <a href="#promotional_offer">Promotional Offer</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="#referral_invitation">Referral Invitation</a>
+        <a href="#referral_reward">Referral Reward</a>
+    </nav>
+    
+    <main class="main">
+        <h1 style="margin-bottom:10px;">PlanBeau Email Templates</h1>
+        <p style="color:#666;margin-bottom:40px;">Complete preview of all 69 email templates with consistent styling</p>
+
+        <!-- AUTHENTICATION TEMPLATES -->
+        <div class="template-card" id="auth_2fa">
+            <div class="template-header"><h3>2FA Verification</h3><span class="category">Authentication</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2>Verification Code</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your verification code is:</p>
+                    <div class="code-box"><span>847293</span></div>
+                    <p>Expires in <strong>10 minutes</strong>.</p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="password_reset">
+            <div class="template-header"><h3>Password Reset</h3><span class="category">Authentication</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2>Reset Your Password</h2>
+                    <p>Hello Sarah,</p>
+                    <p>We received a request to reset your password. Click the button below to create a new password.</p>
+                    <p style="text-align:center;"><a href="#" class="btn">Reset Password</a></p>
+                    <p style="color:#999;font-size:14px;text-align:center;">This link expires in 1 hour.</p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="password_changed">
+            <div class="template-header"><h3>Password Changed</h3><span class="category">Authentication</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Password Changed Successfully</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your password has been changed successfully. If you did not make this change, please contact support immediately.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0;">Your account is now secured with your new password.</p></div>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="email_verification">
+            <div class="template-header"><h3>Email Verification</h3><span class="category">Authentication</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Verify Your Email</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Please verify your email address to complete your registration and access all features.</p>
+                    <p style="text-align:center;"><a href="#" class="btn">Verify Email</a></p>
+                    <p style="color:#999;font-size:14px;text-align:center;">This link expires in 24 hours.</p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="login_new_device">
+            <div class="template-header"><h3>Login From New Device</h3><span class="category">Authentication</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">New Device Login</h2>
+                    <p>Hello Sarah,</p>
+                    <p>We detected a login to your account from a new device.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Device:</strong> Chrome on Windows</p><p style="margin:0 0 8px;"><strong>Location:</strong> New York, USA</p><p style="margin:0;"><strong>Time:</strong> Jan 15, 2025 at 3:45 PM</p></div>
+                    <p>If this was you, no action is needed. If not, please secure your account immediately.</p>
+                    <p style="text-align:center;"><a href="#" class="btn" style="background:#dc3545;">Secure My Account</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <!-- BOOKING TEMPLATES -->
+        <div class="template-card" id="booking_request_vendor">
+            <div class="template-header"><h3>Booking Request to Vendor</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2>New Booking Request</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>New request from <strong>Sarah Johnson</strong>.</p>
+                    <div class="info-box"><h3 style="margin:0 0 15px;font-size:16px;">Event Details</h3><p style="margin:5px 0;"><strong>Service:</strong> Wedding Photography</p><p style="margin:5px 0;"><strong>Date:</strong> June 15, 2025</p><p style="margin:5px 0;"><strong>Location:</strong> The Grand Ballroom, NYC</p><p style="margin:5px 0;"><strong>Budget:</strong> $3,500</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Request</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_accepted_client">
+            <div class="template-header"><h3>Booking Accepted</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">✓ Booking Accepted!</h2>
+                    <p>Hello Sarah,</p>
+                    <p><strong>Elegant Events Photography</strong> accepted your request for <strong>Wedding Photography</strong>!</p>
+                    <div class="info-box success"><h3 style="color:#155724;margin:0 0 15px;font-size:16px;">Next Steps</h3><p style="color:#155724;margin:5px 0;">• Review booking details</p><p style="color:#155724;margin:5px 0;">• Complete payment</p><p style="color:#155724;margin:5px 0;">• Message vendor</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Booking</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_rejected_client">
+            <div class="template-header"><h3>Booking Rejected</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Booking Update</h2>
+                    <p>Hello Sarah,</p>
+                    <p><strong>Elegant Events Photography</strong> cannot accept your request for <strong>Wedding Photography</strong> on June 15, 2025.</p>
+                    <p>Many other vendors can help make your event amazing!</p>
+                    <p style="text-align:center;"><a href="#" class="btn">Find Vendors</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_confirmed_client">
+            <div class="template-header"><h3>Booking Confirmed (Client)</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">✓ Booking Confirmed!</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Great news! Your booking with <strong>Elegant Events Photography</strong> is now confirmed.</p>
+                    <div class="info-box success"><h3 style="color:#155724;margin:0 0 15px;font-size:16px;">Booking Details</h3><p style="color:#155724;margin:5px 0;"><strong>Service:</strong> Wedding Photography</p><p style="color:#155724;margin:5px 0;"><strong>Date:</strong> June 15, 2025</p><p style="color:#155724;margin:5px 0;"><strong>Location:</strong> The Grand Ballroom, NYC</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Booking</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_confirmed_vendor">
+            <div class="template-header"><h3>Booking Confirmed (Vendor)</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">✓ New Confirmed Booking!</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>Great news! <strong>Sarah Johnson</strong> has completed payment and your booking is now confirmed.</p>
+                    <div class="info-box success"><h3 style="color:#155724;margin:0 0 15px;font-size:16px;">Booking Details</h3><p style="color:#155724;margin:5px 0;"><strong>Client:</strong> Sarah Johnson</p><p style="color:#155724;margin:5px 0;"><strong>Service:</strong> Wedding Photography</p><p style="color:#155724;margin:5px 0;"><strong>Date:</strong> June 15, 2025</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Booking</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p><p style="color:#adb5bd;font-size:12px;">© 2025 PlanBeau. All rights reserved.</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_cancelled_client">
+            <div class="template-header"><h3>Booking Cancelled (Client)</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Booking Cancelled</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your booking for <strong>Wedding Photography</strong> with <strong>Elegant Events Photography</strong> has been cancelled.</p>
+                    <div class="info-box danger"><p style="color:#721c24;margin:0;">Reason: Client requested cancellation</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Find New Vendors</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_cancelled_vendor">
+            <div class="template-header"><h3>Booking Cancelled (Vendor)</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Booking Cancelled</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>The booking with <strong>Sarah Johnson</strong> for <strong>Wedding Photography</strong> has been cancelled.</p>
+                    <div class="info-box danger"><p style="color:#721c24;margin:0;">Reason: Client requested cancellation</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Calendar</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_rescheduled">
+            <div class="template-header"><h3>Booking Rescheduled</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Booking Rescheduled</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your booking for <strong>Wedding Photography</strong> has been rescheduled.</p>
+                    <div class="info-box"><p style="margin:0 0 12px;color:#999;text-decoration:line-through;">Original: June 15, 2025 at 2:00 PM</p><p style="margin:0 0 8px;font-size:16px;"><strong>New Date:</strong> June 22, 2025</p><p style="margin:0;font-size:16px;"><strong>New Time:</strong> 3:00 PM</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Booking</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="event_reminder">
+            <div class="template-header"><h3>Event Reminder</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Event Reminder</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your event is coming up soon!</p>
+                    <div class="info-box" style="border-color:#667eea;background:#e8f4fd;"><p style="margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="margin:0 0 8px;"><strong>Date:</strong> June 15, 2025</p><p style="margin:0 0 8px;"><strong>Time:</strong> 2:00 PM</p><p style="margin:0;"><strong>Vendor:</strong> Elegant Events Photography</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Details</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_action_reminder">
+            <div class="template-header"><h3>Booking Action Reminder</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">Action Required</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>You have a pending booking request that requires your attention.</p>
+                    <div class="info-box warning"><p style="color:#856404;margin:0 0 8px;"><strong>Client:</strong> Sarah Johnson</p><p style="color:#856404;margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="color:#856404;margin:0;"><strong>Expires:</strong> in 24 hours</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Respond Now</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_reminder_24h">
+            <div class="template-header"><h3>Booking Reminder 24h</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Your Event is Tomorrow!</h2>
+                    <p>Hello Sarah,</p>
+                    <p>This is a friendly reminder that your event is happening tomorrow.</p>
+                    <div class="info-box" style="border-color:#667eea;background:#e8f4fd;"><p style="margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="margin:0 0 8px;"><strong>Date:</strong> June 15, 2025</p><p style="margin:0 0 8px;"><strong>Time:</strong> 2:00 PM</p><p style="margin:0;"><strong>Location:</strong> The Grand Ballroom, NYC</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Details</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_reminder_1_week">
+            <div class="template-header"><h3>Booking Reminder 1 Week</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Your Event is in 1 Week!</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your upcoming event is just one week away. Make sure everything is ready!</p>
+                    <div class="info-box" style="border-color:#667eea;background:#e8f4fd;"><p style="margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="margin:0 0 8px;"><strong>Date:</strong> June 15, 2025</p><p style="margin:0;"><strong>Vendor:</strong> Elegant Events Photography</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Booking</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="quote_received">
+            <div class="template-header"><h3>Quote Received</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">New Quote from Elegant Events Photography</h2>
+                    <p>Hello Sarah,</p>
+                    <p>You have received a quote for your event.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="margin:0 0 8px;"><strong>Event Date:</strong> June 15, 2025</p><p style="margin:0 0 8px;font-size:20px;font-weight:600;"><strong>Quote Amount:</strong> $3,500</p><p style="margin:0;color:#999;"><strong>Valid Until:</strong> Jan 30, 2025</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Quote</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="booking_deposit_due">
+            <div class="template-header"><h3>Booking Deposit Due</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">Deposit Payment Due</h2>
+                    <p>Hello Sarah,</p>
+                    <p>A deposit is required to confirm your booking with <strong>Elegant Events Photography</strong>.</p>
+                    <div class="info-box warning"><p style="margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="margin:0 0 8px;"><strong>Event Date:</strong> June 15, 2025</p><p style="margin:0 0 8px;font-size:20px;font-weight:600;"><strong>Deposit Amount:</strong> $1,000</p><p style="margin:0;color:#856404;"><strong>Due By:</strong> Jan 20, 2025</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Pay Deposit</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="event_completed">
+            <div class="template-header"><h3>Event Completed</h3><span class="category">Booking</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Event Completed!</h2>
+                    <p>Hello Sarah,</p>
+                    <p>We hope your event was amazing! Your booking with <strong>Elegant Events Photography</strong> has been marked as completed.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="color:#155724;margin:0;"><strong>Event Date:</strong> June 15, 2025</p></div>
+                    <p>We would love to hear about your experience! Please take a moment to leave a review.</p>
+                    <p style="text-align:center;"><a href="#" class="btn">Leave a Review</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- MESSAGING TEMPLATES -->
+        <div class="template-card" id="message_vendor_to_client">
+            <div class="template-header"><h3>Message: Vendor to Client</h3><span class="category">Messaging</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2>New Message from Elegant Events Photography</h2>
+                    <p>Hello Sarah,</p>
+                    <p>You have a new message regarding your booking.</p>
+                    <div class="info-box"><p style="font-style:italic;margin:0;">"Hi Sarah! I wanted to confirm the timeline for your wedding day. Can we schedule a quick call this week?"</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Reply Now</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="message_client_to_vendor">
+            <div class="template-header"><h3>Message: Client to Vendor</h3><span class="category">Messaging</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2>New Message from Sarah Johnson</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>You have a new message from a client.</p>
+                    <div class="info-box"><p style="font-style:italic;margin:0;">"That sounds great! I'm available Thursday afternoon. Would 3 PM work for you?"</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Reply Now</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="unread_messages_reminder">
+            <div class="template-header"><h3>Unread Messages Reminder</h3><span class="category">Messaging</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">You Have Unread Messages</h2>
+                    <p>Hello Sarah,</p>
+                    <p>You have <strong>3</strong> unread message(s) waiting for you.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Elegant Events Photography:</strong> "Looking forward to..."</p><p style="margin:0 0 8px;"><strong>DJ Mike:</strong> "Here's the playlist..."</p><p style="margin:0;"><strong>Floral Designs:</strong> "The centerpieces are..."</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Messages</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="chat_summary">
+            <div class="template-header"><h3>Chat Summary</h3><span class="category">Messaging</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Chat Summary</h2>
+                    <p style="color:#999;font-size:14px;text-align:center;">Reference: SUP-2025-001234</p>
+                    <p>Hello Sarah,</p>
+                    <p>Thank you for contacting PlanBeau Support. Here is a summary of your conversation:</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Subject:</strong> Booking Question</p><p style="margin:0 0 8px;"><strong>Category:</strong> General Inquiry</p><p style="margin:0;"><strong>Reference:</strong> SUP-2025-001234</p></div>
+                    <div class="info-box warning"><p style="color:#856404;margin:0;"><strong>Need more help?</strong> Reply to this email or start a new chat. Use reference <strong>SUP-2025-001234</strong> to continue.</p></div>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- PAYMENT TEMPLATES -->
+        <div class="template-card" id="payment_received_vendor">
+            <div class="template-header"><h3>Payment Received (Vendor)</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Payment Received!</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>Great news! You've received a payment.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0 0 8px;font-size:24px;font-weight:bold;">$3,500.00</p><p style="color:#155724;margin:0 0 8px;"><strong>From:</strong> Sarah Johnson</p><p style="color:#155724;margin:0;"><strong>Service:</strong> Wedding Photography</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Earnings</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="payment_confirmation_client">
+            <div class="template-header"><h3>Payment Confirmation (Client)</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Payment Successful!</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your payment has been processed successfully.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0 0 8px;font-size:24px;font-weight:bold;">$3,500.00</p><p style="color:#155724;margin:0 0 8px;"><strong>To:</strong> Elegant Events Photography</p><p style="color:#155724;margin:0;"><strong>Service:</strong> Wedding Photography</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Receipt</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="payment_failed">
+            <div class="template-header"><h3>Payment Failed</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Payment Failed</h2>
+                    <p>Hello Sarah,</p>
+                    <p>We were unable to process your payment for <strong>Wedding Photography</strong>.</p>
+                    <div class="info-box danger"><p style="color:#721c24;margin:0 0 8px;"><strong>Amount:</strong> $3,500.00</p><p style="color:#721c24;margin:0;"><strong>Reason:</strong> Card declined</p></div>
+                    <p>Please update your payment method and try again.</p>
+                    <p style="text-align:center;"><a href="#" class="btn">Update Payment</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="invoice_sent">
+            <div class="template-header"><h3>Invoice Sent</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Invoice from Elegant Events Photography</h2>
+                    <p>Hello Sarah,</p>
+                    <p>You have received an invoice for your upcoming service.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Invoice #:</strong> INV-2025-0042</p><p style="margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="margin:0 0 8px;"><strong>Event Date:</strong> June 15, 2025</p><p style="margin:0 0 8px;font-size:20px;font-weight:600;"><strong>Amount Due:</strong> $3,500.00</p><p style="margin:0;color:#999;"><strong>Due Date:</strong> Feb 15, 2025</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Pay Now</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="refund_processed">
+            <div class="template-header"><h3>Refund Processed</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Refund Processed</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your refund has been processed successfully.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0 0 8px;font-size:20px;font-weight:600;"><strong>Refund Amount:</strong> $500.00</p><p style="color:#155724;margin:0 0 8px;"><strong>Original Booking:</strong> Wedding Photography</p><p style="color:#155724;margin:0;"><strong>Refund Method:</strong> Original payment method</p></div>
+                    <p style="color:#999;font-size:14px;text-align:center;">Please allow 5-10 business days for the refund to appear in your account.</p>
+                    <p style="text-align:center;"><a href="#" class="btn">View Details</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="payout_processed">
+            <div class="template-header"><h3>Payout Processed</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Payout Sent</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>Great news! Your payout has been processed and sent to your bank account.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0 0 8px;font-size:20px;font-weight:600;"><strong>Amount:</strong> $3,325.00</p><p style="color:#155724;margin:0 0 8px;"><strong>Bank Account:</strong> ****4567</p><p style="color:#155724;margin:0;"><strong>Expected Arrival:</strong> Jan 18, 2025</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Earnings</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="receipt">
+            <div class="template-header"><h3>Payment Receipt</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Payment Receipt</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Thank you for your payment. Here is your receipt.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Receipt #:</strong> REC-2025-0042</p><p style="margin:0 0 8px;"><strong>Date:</strong> Jan 15, 2025</p><p style="margin:0 0 8px;"><strong>Vendor:</strong> Elegant Events Photography</p><p style="margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="margin:0 0 8px;font-size:20px;font-weight:600;"><strong>Amount Paid:</strong> $3,500.00</p><p style="margin:0;color:#999;"><strong>Payment Method:</strong> Visa ****1234</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Download Receipt</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="final_payment_due">
+            <div class="template-header"><h3>Final Payment Due</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">Final Payment Due</h2>
+                    <p>Hello Sarah,</p>
+                    <p>The final payment for your upcoming event with <strong>Elegant Events Photography</strong> is now due.</p>
+                    <div class="info-box warning"><p style="margin:0 0 8px;"><strong>Service:</strong> Wedding Photography</p><p style="margin:0 0 8px;"><strong>Event Date:</strong> June 15, 2025</p><p style="margin:0 0 8px;font-size:20px;font-weight:600;"><strong>Amount Due:</strong> $2,500.00</p><p style="margin:0;color:#856404;"><strong>Due By:</strong> June 1, 2025</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Pay Now</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="subscription_renewal_reminder">
+            <div class="template-header"><h3>Subscription Renewal Reminder</h3><span class="category">Payment</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Subscription Renewal Reminder</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>Your <strong>Premium Vendor</strong> subscription will renew on <strong>Feb 1, 2025</strong>.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Plan:</strong> Premium Vendor</p><p style="margin:0 0 8px;"><strong>Amount:</strong> $49.99/month</p><p style="margin:0;"><strong>Renewal Date:</strong> Feb 1, 2025</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Manage Subscription</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- VENDOR TEMPLATES -->
+        <div class="template-card" id="vendor_application_admin">
+            <div class="template-header"><h3>Vendor Application (Admin)</h3><span class="category">Vendor</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2>New Vendor Application</h2>
+                    <p>Hello Admin,</p>
+                    <p>A new vendor application has been submitted for review.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Business Name:</strong> Elegant Events Photography</p><p style="margin:0 0 8px;"><strong>Category:</strong> Photography</p><p style="margin:0;"><strong>Location:</strong> New York, NY</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Review Application</a></p>
+                </div>
+                <div class="email-footer"><p>PlanBeau Admin Panel</p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="vendor_welcome">
+            <div class="template-header"><h3>Vendor Welcome</h3><span class="category">Vendor</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Welcome to PlanBeau!</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>Thank you for joining PlanBeau! Your application has been received.</p>
+                    <div class="info-box"><p style="margin:5px 0;">1. Complete your profile</p><p style="margin:5px 0;">2. Add your services</p><p style="margin:5px 0;">3. Upload portfolio photos</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Complete Your Profile</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="vendor_approved">
+            <div class="template-header"><h3>Vendor Approved</h3><span class="category">Vendor</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Congratulations! You're Approved!</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>Your vendor application has been approved. You can now start receiving booking requests!</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0;">Your profile is now live!</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Your Profile</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="vendor_rejected">
+            <div class="template-header"><h3>Vendor Rejected</h3><span class="category">Vendor</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Application Update</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>We are unable to approve your application at this time.</p>
+                    <div class="info-box danger"><p style="color:#721c24;margin:0;"><strong>Reason:</strong> Incomplete documentation</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Reapply</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="vendor_inactivity">
+            <div class="template-header"><h3>Vendor Inactivity</h3><span class="category">Vendor</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">We Miss You!</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>You haven't been active for a while. Clients are looking for vendors like you!</p>
+                    <div class="info-box warning"><p style="color:#856404;margin:0;"><strong>Last Active:</strong> 30 days ago</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Update Availability</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="analytics_summary">
+            <div class="template-header"><h3>Analytics Summary</h3><span class="category">Vendor</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Your Weekly Analytics</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Profile Views:</strong> 245</p><p style="margin:0 0 8px;"><strong>Inquiries:</strong> 12</p><p style="margin:0;"><strong>Bookings:</strong> 4</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Full Analytics</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="vendor_profile_incomplete">
+            <div class="template-header"><h3>Vendor Profile Incomplete</h3><span class="category">Vendor</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">Complete Your Profile</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>Your profile is <strong>65%</strong> complete.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;">• Add portfolio photos</p><p style="margin:0;">• Set your pricing</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Complete Profile</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="vendor_featured">
+            <div class="template-header"><h3>Vendor Featured</h3><span class="category">Vendor</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Congratulations! You're Featured!</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>Your profile has been selected as a <strong>Featured Vendor</strong>!</p>
+                    <div class="code-box"><p style="color:white;font-size:24px;font-weight:bold;margin:0;">Featured Vendor</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Your Profile</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- CLIENT TEMPLATES -->
+        <div class="template-card" id="client_welcome">
+            <div class="template-header"><h3>Client Welcome</h3><span class="category">Client</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Welcome to PlanBeau!</h2>
+                    <p>Hello Sarah,</p>
+                    <p>We're excited to help you find the perfect vendors for your events.</p>
+                    <div class="info-box"><p style="margin:5px 0;">• Browse vendors</p><p style="margin:5px 0;">• Save favorites</p><p style="margin:5px 0;">• Send booking requests</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Explore Vendors</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="user_inactivity">
+            <div class="template-header"><h3>User Inactivity</h3><span class="category">Client</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">We Miss You!</h2>
+                    <p>Hello Sarah,</p>
+                    <p>It's been a while! We have new vendors waiting for you.</p>
+                    <p style="text-align:center;"><a href="#" class="btn">Explore Now</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="favorite_vendor_available">
+            <div class="template-header"><h3>Favorite Vendor Available</h3><span class="category">Client</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#ec4899;">Your Favorite is Available!</h2>
+                    <p>Hello Sarah,</p>
+                    <p><strong>Elegant Events Photography</strong> has new availability.</p>
+                    <div class="info-box"><p style="margin:0;">Available dates: June 15, 22, 29</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Book Now</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="subscription_cancelled">
+            <div class="template-header"><h3>Subscription Cancelled</h3><span class="category">Client</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Subscription Cancelled</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your subscription has been cancelled. Access ends <strong>Feb 15, 2025</strong>.</p>
+                    <div class="info-box danger"><p style="color:#721c24;margin:0;">You will lose access to premium features.</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Resubscribe</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- REVIEW TEMPLATES -->
+        <div class="template-card" id="review_request">
+            <div class="template-header"><h3>Review Request</h3><span class="category">Review</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">How Was Your Experience?</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your event with <strong>Elegant Events Photography</strong> was completed. We'd love to hear about it!</p>
+                    <p style="text-align:center;"><a href="#" class="btn">Leave a Review</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="new_review_received">
+            <div class="template-header"><h3>New Review Received</h3><span class="category">Review</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">New Review!</h2>
+                    <p>Hello Elegant Events Photography,</p>
+                    <p>You received a <strong>5-star</strong> review from <strong>Sarah Johnson</strong>!</p>
+                    <div class="info-box"><p style="margin:0 0 12px;color:#f59e0b;">★★★★★</p><p style="margin:0;font-style:italic;">"Absolutely amazing!"</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View & Respond</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- SUPPORT TEMPLATES -->
+        <div class="template-card" id="support_ticket_opened">
+            <div class="template-header"><h3>Support Ticket Opened</h3><span class="category">Support</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Support Ticket Created</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your support ticket has been created.</p>
+                    <div class="info-box"><p style="margin:0 0 8px;"><strong>Ticket #:</strong> SUP-2025-001234</p><p style="margin:0;"><strong>Status:</strong> Open</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Ticket</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="support_ticket_in_progress">
+            <div class="template-header"><h3>Support Ticket In Progress</h3><span class="category">Support</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">Ticket Update</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your support ticket is now being worked on.</p>
+                    <div class="info-box warning"><p style="margin:0;"><strong>Status:</strong> In Progress</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Ticket</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="support_ticket_closed">
+            <div class="template-header"><h3>Support Ticket Closed</h3><span class="category">Support</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Ticket Resolved</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your support ticket has been resolved.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0;"><strong>Status:</strong> Closed</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Rate Our Support</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="support_ticket_reply">
+            <div class="template-header"><h3>Support Ticket Reply</h3><span class="category">Support</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2>New Reply on Your Ticket</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Our support team has replied to your ticket.</p>
+                    <div class="info-box"><p style="margin:0;font-style:italic;">"Thank you for reaching out..."</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Full Reply</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="policy_warning">
+            <div class="template-header"><h3>Policy Warning</h3><span class="category">Support</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">Message Blocked</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your message violated our community guidelines.</p>
+                    <div class="info-box warning"><p style="color:#856404;margin:0;"><strong>Violation Type:</strong> Inappropriate Content</p></div>
+                    <p>Please review our community guidelines.</p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- ACCOUNT TEMPLATES -->
+        <div class="template-card" id="account_locked">
+            <div class="template-header"><h3>Account Locked</h3><span class="category">Account</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Account Locked</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your account has been locked due to multiple failed login attempts.</p>
+                    <div class="info-box danger"><p style="color:#721c24;margin:0;">Reset your password to unlock.</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn" style="background:#dc3545;">Reset Password</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="account_unlocked">
+            <div class="template-header"><h3>Account Unlocked</h3><span class="category">Account</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Account Unlocked</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your account has been unlocked.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0;">You can now access all features.</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Go to Dashboard</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="account_suspended">
+            <div class="template-header"><h3>Account Suspended</h3><span class="category">Account</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Account Suspended</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your account has been suspended.</p>
+                    <div class="info-box danger"><p style="color:#721c24;margin:0;"><strong>Reason:</strong> Terms of Service Violation</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Contact Support</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="account_reactivated">
+            <div class="template-header"><h3>Account Reactivated</h3><span class="category">Account</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Account Reactivated</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Your account has been reactivated. Welcome back!</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0;">Full access restored.</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Go to Dashboard</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="account_deletion_requested">
+            <div class="template-header"><h3>Account Deletion Requested</h3><span class="category">Account</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#dc3545;">Account Deletion Request</h2>
+                    <p>Hello Sarah,</p>
+                    <p>We received a request to delete your account.</p>
+                    <div class="info-box danger"><p style="color:#721c24;margin:0;"><strong>Warning:</strong> This action is permanent.</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn" style="background:#dc3545;">Confirm Deletion</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- DISPUTE TEMPLATES -->
+        <div class="template-card" id="dispute_opened">
+            <div class="template-header"><h3>Dispute Opened</h3><span class="category">Dispute</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#f59e0b;">Dispute Opened</h2>
+                    <p>Hello Sarah,</p>
+                    <p>A dispute has been opened for booking <strong>#BK-2025-0042</strong>.</p>
+                    <div class="info-box warning"><p style="margin:0 0 8px;"><strong>Reason:</strong> Service not as described</p><p style="margin:0;"><strong>Filed By:</strong> Sarah Johnson</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Dispute</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="dispute_resolved">
+            <div class="template-header"><h3>Dispute Resolved</h3><span class="category">Dispute</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">Dispute Resolved</h2>
+                    <p>Hello Sarah,</p>
+                    <p>The dispute for booking <strong>#BK-2025-0042</strong> has been resolved.</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0;"><strong>Resolution:</strong> Partial refund issued</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Details</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- MARKETING TEMPLATES -->
+        <div class="template-card" id="promotional_offer">
+            <div class="template-header"><h3>Promotional Offer</h3><span class="category">Marketing</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Special Offer!</h2>
+                    <p>Hello Sarah,</p>
+                    <p>We have an exclusive offer for you!</p>
+                    <div class="code-box"><p style="color:white;font-size:32px;font-weight:bold;margin:0 0 10px;">20% OFF</p><p style="color:rgba(255,255,255,0.9);margin:0;">Code: <strong>SAVE20</strong></p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Claim Offer</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="newsletter">
+            <div class="template-header"><h3>Newsletter</h3><span class="category">Marketing</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">January Newsletter</h2>
+                    <p>Hello Sarah,</p>
+                    <p>Here's what's new at PlanBeau this month!</p>
+                    <div class="info-box"><p style="margin:5px 0;">• New vendor categories</p><p style="margin:5px 0;">• Enhanced features</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Read More</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="referral_invitation">
+            <div class="template-header"><h3>Referral Invitation</h3><span class="category">Marketing</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#667eea;">Sarah Johnson Invited You!</h2>
+                    <p>Hello,</p>
+                    <p><strong>Sarah Johnson</strong> thinks you would love PlanBeau!</p>
+                    <div class="code-box"><p style="color:white;font-size:24px;font-weight:bold;margin:0 0 10px;">Get $25 Off</p><p style="color:rgba(255,255,255,0.9);margin:0;">Your first booking</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">Join Now</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <div class="template-card" id="referral_reward">
+            <div class="template-header"><h3>Referral Reward</h3><span class="category">Marketing</span></div>
+            <div class="template-body"><div class="email-preview"><div class="email-content">
+                <div class="email-header"><h1>PlanBeau</h1><p>Connecting you with amazing vendors</p></div>
+                <div class="email-body">
+                    <h2 style="color:#28a745;">You Earned a Reward!</h2>
+                    <p>Hello Sarah,</p>
+                    <p><strong>Emily Davis</strong> signed up using your referral!</p>
+                    <div class="info-box success"><p style="color:#155724;margin:0 0 8px;font-size:20px;font-weight:600;"><strong>Your Reward:</strong> $25 Credit</p><p style="color:#155724;margin:0;">Added to your account.</p></div>
+                    <p style="text-align:center;"><a href="#" class="btn">View Balance</a></p>
+                </div>
+                <div class="email-footer"><p>Need help? <a href="#">support@planbeau.com</a></p></div>
+            </div></div></div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="summary">
+            <h2>Email Templates Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-item"><div class="number">69</div><div class="label">Total Templates</div></div>
+                <div class="summary-item"><div class="number">12</div><div class="label">Categories</div></div>
+                <div class="summary-item"><div class="number">100%</div><div class="label">Database Hosted</div></div>
+                <div class="summary-item"><div class="number">0</div><div class="label">Hardcoded</div></div>
+            </div>
+            <p style="margin-top:30px;color:#888;font-size:14px;">All templates use consistent styling with the PlanBeau brand colors and include header/footer components.</p>
+        </div>
+
+    </main>
+</div>
+</body>
+</html>

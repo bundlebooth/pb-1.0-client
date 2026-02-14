@@ -1,0 +1,352 @@
+/* Location Search Modal Styles */
+.location-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.location-modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.location-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.location-modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+.location-modal-header .close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #f5f5f5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.location-modal-header .close-btn:hover {
+  background: #e5e5e5;
+}
+
+.location-modal-header .close-btn i {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Body */
+.location-modal-body {
+  padding: 1.5rem;
+}
+
+.modal-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Input Groups */
+.location-input-group,
+.radius-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.location-input-group:focus-within,
+.radius-selector:focus-within {
+  border-color: #5086E8;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-icon {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+}
+
+.input-icon i {
+  font-size: 1rem;
+  color: #666;
+}
+
+.input-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-content label {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+.input-content input,
+.input-content select {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #111;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+}
+
+.input-content input::placeholder {
+  color: #aaa;
+}
+
+/* Current location button inline with input */
+.current-location-btn-inline {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.75rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.current-location-btn-inline:hover {
+  background: #5086E8;
+  border-color: #5086E8;
+}
+
+.current-location-btn-inline:hover i {
+  color: white;
+}
+
+.current-location-btn-inline i {
+  font-size: 1rem;
+  color: #5086E8;
+  transition: color 0.2s;
+}
+
+.input-content select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.radius-selector {
+  position: relative;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.select-arrow i {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Map Container */
+.map-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.map {
+  width: 100%;
+  height: 280px;
+  background: #f0f0f0;
+}
+
+.current-location-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.current-location-btn:hover {
+  background: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.current-location-btn i {
+  font-size: 1rem;
+  color: #333;
+}
+
+.map-info-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-info-btn i {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer */
+.location-modal-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.apply-btn {
+  background: #5086E8;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.apply-btn:hover {
+  background: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .location-modal {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    height: 100%;
+  }
+
+  .location-modal-overlay {
+    padding: 0;
+  }
+
+  .map {
+    height: 240px;
+  }
+
+  .location-modal-body {
+    padding: 1rem;
+  }
+
+  .location-modal-footer {
+    padding: 1rem;
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #eee;
+  }
+
+  .apply-btn {
+    width: 100%;
+  }
+}
+
+/* Google Places Autocomplete Dropdown Styling */
+.pac-container {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin-top: 4px;
+  font-family: inherit;
+  z-index: 10000;
+}
+
+.pac-item {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.pac-item:first-child {
+  border-top: none;
+}
+
+.pac-item:hover {
+  background: #f5f5f5;
+}
+
+.pac-icon {
+  display: none;
+}
+
+.pac-item-query {
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.pac-matched {
+  font-weight: 600;
+}

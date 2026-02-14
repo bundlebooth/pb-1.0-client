@@ -1,0 +1,959 @@
+/* ============================================
+   VENDOR BOOKING PAGE STYLES
+   Modern Airbnb-inspired booking interface
+   ============================================ */
+
+:root {
+    --primary-color: #4F86E8;
+    --primary-hover: #3A6FD4;
+    --secondary-color: #222222;
+    --text-primary: #222222;
+    --text-secondary: #717171;
+    --border-color: #DDDDDD;
+    --background-light: #F7F7F7;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.12);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #f8f8f8;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.booking-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+    background-color: var(--background-light);
+}
+
+.header-logo {
+    flex: 1;
+    text-align: center;
+}
+
+.logo-img {
+    height: 32px;
+    width: auto;
+}
+
+.header-spacer {
+    width: 40px;
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+.booking-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 5rem;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+    min-height: calc(100vh - 80px);
+}
+
+/* Wrapper to ensure full white background */
+.booking-page-wrapper {
+    background: white;
+    min-height: 100vh;
+}
+
+/* ============================================
+   BOOKING FORM SECTION
+   ============================================ */
+
+.booking-form-section {
+    max-width: 600px;
+}
+
+.booking-form-wrapper {
+    padding: 1rem 0;
+}
+
+.booking-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+/* ============================================
+   STEPS OVERVIEW - ALL STEPS SHOWN
+   ============================================ */
+
+.upcoming-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 3rem;
+}
+
+.overview-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.overview-step.active {
+    opacity: 1;
+}
+
+.overview-step.completed {
+    opacity: 1;
+}
+
+.overview-step:not(.active):not(.completed) {
+    opacity: 1;
+}
+
+.overview-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #d1d5db;
+    background-color: white;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+
+.overview-step.active .overview-number {
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
+    color: white;
+}
+
+.overview-step.completed .overview-number {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.overview-title {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #d1d5db;
+    transition: all 0.2s;
+}
+
+.overview-step.active .overview-title {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.overview-step.completed .overview-title {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ============================================
+   STEP HEADER - GIGGSTER STYLE
+   ============================================ */
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.step-number-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--text-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
+.step-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.step-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.required-asterisk {
+    color: #ef4444;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: white;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--text-primary);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--text-primary);
+    box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.form-input.with-icon {
+    padding-left: 2.5rem;
+}
+
+/* ============================================
+   SERVICES LIST
+   ============================================ */
+
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.service-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    cursor: pointer;
+    background: white;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    position: relative;
+}
+
+
+.service-card.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(94, 114, 228, 0.02);
+}
+
+.service-icon-container {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.service-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.service-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.service-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.service-checkbox {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    background: white;
+}
+
+.service-card.selected .service-checkbox {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.service-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+}
+
+.service-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.service-category i {
+    font-size: 0.75rem;
+}
+
+.service-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.service-duration i {
+    font-size: 0.75rem;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+}
+
+.loading-spinner i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.no-services {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+}
+
+.no-services i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* ============================================
+   REVIEW SECTION
+   ============================================ */
+
+.review-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--background-light);
+    border-radius: var(--radius-md);
+}
+
+.review-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.review-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.review-value {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: right;
+}
+
+.review-services {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.review-service-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: var(--radius-sm);
+}
+
+.review-service-item i {
+    color: var(--success-color);
+}
+
+/* ============================================
+   INFO BOX
+   ============================================ */
+
+.info-box {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #E7F5FF;
+    border: 1px solid #B3D9FF;
+    border-radius: var(--radius-sm);
+    margin-top: 1.5rem;
+}
+
+.info-box i {
+    color: #0066CC;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info-box strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.info-box p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ============================================
+   FORM ACTIONS
+   ============================================ */
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn {
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: #222222;
+    color: white;
+    flex: 1;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #000000;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:disabled {
+    background: var(--border-color);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--background-light);
+}
+
+/* ============================================
+   BOOKING SUMMARY SECTION
+   ============================================ */
+
+.booking-summary-section {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.booking-summary-card {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    background: white;
+}
+
+.vendor-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.vendor-image-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-md);
+    background: var(--background-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.vendor-image {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+}
+
+.vendor-details {
+    flex: 1;
+}
+
+.vendor-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.vendor-category {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.vendor-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.vendor-rating i {
+    color: #FFB400;
+}
+
+.vendor-rating .review-count {
+    margin-left: 0.25rem;
+    color: var(--text-secondary);
+}
+
+.summary-divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 1.5rem 0;
+}
+
+.booking-summary-details {
+    margin-bottom: 1rem;
+}
+
+.summary-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.summary-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+}
+
+.summary-item i {
+    color: var(--text-secondary);
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.summary-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.summary-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.price-breakdown {
+    padding: 1rem 0;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.price-item:last-child {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.info-notice {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: var(--background-light);
+    border-radius: var(--radius-sm);
+    margin-top: 1rem;
+}
+
+.info-notice i {
+    color: var(--success-color);
+    flex-shrink: 0;
+}
+
+.info-notice p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ============================================
+   SUCCESS MODAL
+   ============================================ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-content {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+}
+
+.success-modal-content {
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--success-color);
+    margin-bottom: 1rem;
+}
+
+.success-modal-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.success-modal-content p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.success-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .booking-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .booking-summary-section {
+        position: relative;
+        top: 0;
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 1rem;
+    }
+
+    .booking-container {
+        padding: 1rem;
+        margin: 0;
+    }
+
+    .booking-title {
+        font-size: 1.5rem;
+    }
+
+    .step-title {
+        font-size: 1.25rem;
+    }
+    
+    .step-header {
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .step-number-circle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .booking-summary-card {
+        padding: 1rem;
+    }
+
+    .vendor-image-placeholder,
+    .vendor-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .service-card {
+        flex-direction: column;
+    }
+    
+    .service-icon-container {
+        width: 100%;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 24px;
+    }
+
+    .booking-title {
+        font-size: 1.25rem;
+    }
+
+    .step-title {
+        font-size: 1.1rem;
+    }
+
+    .form-input,
+    .form-textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.booking-step {
+    animation: fadeIn 0.3s ease-out;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.form-group {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.btn:focus,
+.form-input:focus,
+.form-textarea:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

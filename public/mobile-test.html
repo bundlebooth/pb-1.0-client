@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Test - PlanHive</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 375px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .test-title {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .test-link {
+            display: block;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .test-link:hover {
+            background: #0056b3;
+        }
+        .instructions {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #f57c00;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="test-title">🔧 Mobile Test Page</h1>
+        
+        <a href="http://localhost:3000" class="test-link">
+            📱 Open PlanHive Mobile
+        </a>
+        
+        <a href="http://localhost:3000?mobile=true" class="test-link">
+            🚀 Force Mobile View
+        </a>
+        
+        <div class="instructions">
+            <h3>📋 What to Check:</h3>
+            <ul>
+                <li><strong>Header:</strong> User icon on far right, no vendor buttons</li>
+                <li><strong>Search:</strong> Small, clean search bar (32px height)</li>
+                <li><strong>Cards:</strong> No borders around text areas</li>
+                <li><strong>Map:</strong> "Show Map" button instead of toggle</li>
+            </ul>
+            
+            <h3>🔄 If Still Wrong:</h3>
+            <p><strong>Clear browser cache:</strong> Settings → Privacy → Clear Browsing Data</p>
+            <p><strong>Or use incognito mode</strong> to bypass cache</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1367 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { API_BASE_URL } from '../config';
+import { showBanner } from '../utils/helpers';
+import './BecomeVendorPage.css';
+
+// Import useState for step components
+const { useState: useStateInComponent } = React;
+
+const BecomeVendorPage = () => {
+  const navigate = useNavigate();
+  const { currentUser, setCurrentUser } = useAuth();
+  const [currentStep, setCurrentStep] = useState(0);
+  const [loading, setLoading] = useState(false);
+  
+  // Form data state
+  const [formData, setFormData] = useState({
+    // Step 1: Account Type
+    accountType: 'vendor',
+    
+    // Step 2: Business Type
+    businessType: '',
+    categories: [],
+    
+    // Step 3: Business Details
+    businessName: '',
+    displayName: '',
+    businessDescription: '',
+    yearsInBusiness: '',
+    
+    // Step 4: Contact Information
+    businessPhone: '',
+    website: '',
+    email: currentUser?.email || '',
+    
+    // Step 5: Location
+    address: '',
+    city: '',
+    state: '',
+    country: 'Canada',
+    postalCode: '',
+    serviceAreas: [],
+    
+    // Step 6: Services & Pricing
+    services: [],
+    
+    // Step 7: Business Hours
+    businessHours: {
+      monday: { isAvailable: true, openTime: '09:00', closeTime: '17:00' },
+      tuesday: { isAvailable: true, openTime: '09:00', closeTime: '17:00' },
+      wednesday: { isAvailable: true, openTime: '09:00', closeTime: '17:00' },
+      thursday: { isAvailable: true, openTime: '09:00', closeTime: '17:00' },
+      friday: { isAvailable: true, openTime: '09:00', closeTime: '17:00' },
+      saturday: { isAvailable: false, openTime: '10:00', closeTime: '16:00' },
+      sunday: { isAvailable: false, openTime: '10:00', closeTime: '16:00' }
+    },
+    
+    // Step 8: Packages (optional)
+    packages: [],
+    
+    // Step 9: Policies & FAQs
+    cancellationPolicy: '',
+    depositPercentage: '',
+    paymentTerms: '',
+    faqs: [],
+    
+    // Step 10: Additional Details
+    licenseNumber: '',
+    insuranceVerified: false,
+    teamSize: '',
+    languages: [],
+    certifications: []
+  });
+
+  // Available categories
+  const availableCategories = [
+    { id: 'venue', name: 'Venue', icon: '🏛️', description: 'Event spaces and locations' },
+    { id: 'catering', name: 'Catering', icon: '🍽️', description: 'Food and beverage services' },
+    { id: 'photo', name: 'Photography', icon: '📸', description: 'Photography and videography' },
+    { id: 'music', name: 'Music/DJ', icon: '🎵', description: 'Music and entertainment' },
+    { id: 'decor', name: 'Decorations', icon: '🎨', description: 'Event decorations and styling' },
+    { id: 'entertainment', name: 'Entertainment', icon: '🎭', description: 'Performers and entertainers' },
+    { id: 'beauty', name: 'Beauty', icon: '💄', description: 'Hair, makeup, and beauty services' },
+    { id: 'cake', name: 'Cake', icon: '🎂', description: 'Cakes and desserts' },
+    { id: 'transport', name: 'Transportation', icon: '🚗', description: 'Transportation services' },
+    { id: 'planner', name: 'Event Planner', icon: '📋', description: 'Event planning and coordination' },
+    { id: 'fashion', name: 'Fashion', icon: '👗', description: 'Attire and fashion services' },
+    { id: 'stationery', name: 'Stationery', icon: '✉️', description: 'Invitations and stationery' }
+  ];
+
+  // Canadian provinces
+  const canadianProvinces = [
+    'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 
+    'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 
+    'Prince Edward Island', 'Quebec', 'Saskatchewan'
+  ];
+
+  // Major Canadian cities
+  const canadianCities = [
+    'Toronto', 'Montreal', 'Vancouver', 'Calgary', 'Edmonton', 
+    'Ottawa', 'Winnipeg', 'Quebec City', 'Hamilton', 'Kitchener',
+    'London', 'Victoria', 'Halifax', 'Oshawa', 'Windsor'
+  ];
+
+  const steps = [
+    {
+      id: 'welcome',
+      title: 'Welcome to PlanHive',
+      subtitle: "Let's get you started with your vendor account",
+      component: WelcomeStep,
+      required: true
+    },
+    {
+      id: 'business-type',
+      title: 'What type of services do you offer?',
+      subtitle: 'Select all categories that apply to your business',
+      component: BusinessTypeStep,
+      required: true
+    },
+    {
+      id: 'business-details',
+      title: 'Tell us about your business',
+      subtitle: 'Help clients understand what makes you unique',
+      component: BusinessDetailsStep,
+      required: true
+    },
+    {
+      id: 'contact',
+      title: 'How can clients reach you?',
+      subtitle: 'Provide your contact information',
+      component: ContactStep,
+      required: true
+    },
+    {
+      id: 'location',
+      title: 'Where are you located?',
+      subtitle: 'Let clients know where you operate',
+      component: LocationStep,
+      required: true
+    },
+    {
+      id: 'services',
+      title: 'What services do you provide?',
+      subtitle: 'Add your services and pricing (you can add more later)',
+      component: ServicesStep,
+      required: false,
+      skippable: true
+    },
+    {
+      id: 'business-hours',
+      title: 'When are you available?',
+      subtitle: 'Set your business hours',
+      component: BusinessHoursStep,
+      required: false,
+      skippable: true
+    },
+    {
+      id: 'packages',
+      title: 'Do you offer packages?',
+      subtitle: 'Create package deals for your clients (optional)',
+      component: PackagesStep,
+      required: false,
+      skippable: true
+    },
+    {
+      id: 'policies',
+      title: 'Set your policies',
+      subtitle: 'Cancellation, deposits, and payment terms',
+      component: PoliciesStep,
+      required: false,
+      skippable: true
+    },
+    {
+      id: 'additional',
+      title: 'Additional information',
+      subtitle: 'Licenses, certifications, and team details (optional)',
+      component: AdditionalDetailsStep,
+      required: false,
+      skippable: true
+    },
+    {
+      id: 'review',
+      title: 'Review your information',
+      subtitle: 'Make sure everything looks good',
+      component: ReviewStep,
+      required: true
+    }
+  ];
+
+  useEffect(() => {
+    // Scroll to top on step change
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleCategoryToggle = (categoryId) => {
+    setFormData(prev => {
+      const categories = prev.categories.includes(categoryId)
+        ? prev.categories.filter(c => c !== categoryId)
+        : [...prev.categories, categoryId];
+      return { ...prev, categories };
+    });
+  };
+
+  const handleAddService = (service) => {
+    setFormData(prev => ({
+      ...prev,
+      services: [...prev.services, { ...service, id: Date.now() }]
+    }));
+  };
+
+  const handleRemoveService = (serviceId) => {
+    setFormData(prev => ({
+      ...prev,
+      services: prev.services.filter(s => s.id !== serviceId)
+    }));
+  };
+
+  const handleUpdateService = (serviceId, updates) => {
+    setFormData(prev => ({
+      ...prev,
+      services: prev.services.map(s => s.id === serviceId ? { ...s, ...updates } : s)
+    }));
+  };
+
+  const handleBusinessHoursChange = (day, field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      businessHours: {
+        ...prev.businessHours,
+        [day]: {
+          ...prev.businessHours[day],
+          [field]: value
+        }
+      }
+    }));
+  };
+
+  const handleAddPackage = (pkg) => {
+    setFormData(prev => ({
+      ...prev,
+      packages: [...prev.packages, { ...pkg, id: Date.now() }]
+    }));
+  };
+
+  const handleRemovePackage = (packageId) => {
+    setFormData(prev => ({
+      ...prev,
+      packages: prev.packages.filter(p => p.id !== packageId)
+    }));
+  };
+
+  const handleAddFAQ = (faq) => {
+    setFormData(prev => ({
+      ...prev,
+      faqs: [...prev.faqs, { ...faq, id: Date.now() }]
+    }));
+  };
+
+  const handleRemoveFAQ = (faqId) => {
+    setFormData(prev => ({
+      ...prev,
+      faqs: prev.faqs.filter(f => f.id !== faqId)
+    }));
+  };
+
+  const handleNext = () => {
+    // Validation for each step
+    if (currentStep === 1 && formData.categories.length === 0) {
+      showBanner('Please select at least one category', 'error');
+      return;
+    }
+    if (currentStep === 2) {
+      if (!formData.businessName.trim()) {
+        showBanner('Please enter your business name', 'error');
+        return;
+      }
+      if (!formData.displayName.trim()) {
+        showBanner('Please enter a display name', 'error');
+        return;
+      }
+    }
+    if (currentStep === 3) {
+      if (!formData.businessPhone.trim()) {
+        showBanner('Please enter your business phone', 'error');
+        return;
+      }
+    }
+    if (currentStep === 4) {
+      if (!formData.city.trim()) {
+        showBanner('Please enter your city', 'error');
+        return;
+      }
+      if (!formData.state.trim()) {
+        showBanner('Please select your province', 'error');
+        return;
+      }
+    }
+
+    if (currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handleBack = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleSubmit = async () => {
+    try {
+      setLoading(true);
+
+      // If user is not logged in, register them first
+      if (!currentUser) {
+        showBanner('Please log in or create an account first', 'error');
+        navigate('/');
+        return;
+      }
+
+      // Check if user already has a vendor profile
+      const checkResponse = await fetch(`${API_BASE_URL}/vendors/user/${currentUser.id}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+
+      let vendorProfileId;
+
+      if (checkResponse.ok) {
+        const existingProfile = await checkResponse.json();
+        vendorProfileId = existingProfile.vendorProfileId;
+        showBanner('Updating your existing vendor profile...', 'info');
+      }
+
+      // Prepare vendor profile data
+      const vendorData = {
+        userId: currentUser.id,
+        businessName: formData.businessName,
+        displayName: formData.displayName,
+        businessDescription: formData.businessDescription,
+        businessPhone: formData.businessPhone,
+        website: formData.website || null,
+        yearsInBusiness: parseInt(formData.yearsInBusiness) || 1,
+        address: formData.address || null,
+        city: formData.city,
+        state: formData.state,
+        country: formData.country,
+        postalCode: formData.postalCode || null,
+        categories: formData.categories,
+        serviceAreas: formData.serviceAreas.length > 0 ? formData.serviceAreas : [formData.city],
+        // Additional comprehensive data
+        services: formData.services,
+        businessHours: formData.businessHours,
+        packages: formData.packages,
+        cancellationPolicy: formData.cancellationPolicy,
+        depositPercentage: formData.depositPercentage ? parseInt(formData.depositPercentage) : null,
+        paymentTerms: formData.paymentTerms,
+        faqs: formData.faqs,
+        licenseNumber: formData.licenseNumber,
+        insuranceVerified: formData.insuranceVerified,
+        teamSize: formData.teamSize ? parseInt(formData.teamSize) : null,
+        languages: formData.languages,
+        certifications: formData.certifications
+      };
+
+      // Create or update vendor profile
+      const profileResponse = await fetch(`${API_BASE_URL}/vendors/profile`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify(vendorData)
+      });
+
+      if (!profileResponse.ok) {
+        const error = await profileResponse.json();
+        throw new Error(error.message || 'Failed to create vendor profile');
+      }
+
+      const result = await profileResponse.json();
+      vendorProfileId = result.vendorProfileId;
+      
+      // Update user context to reflect vendor status
+      setCurrentUser(prev => ({
+        ...prev,
+        isVendor: true,
+        vendorProfileId: result.vendorProfileId
+      }));
+
+      showBanner('Vendor profile created successfully! 🎉', 'success');
+      
+      // Navigate to dashboard
+      setTimeout(() => {
+        navigate('/?dashboard=vendor-settings');
+      }, 1500);
+
+    } catch (error) {
+      console.error('Error creating vendor profile:', error);
+      showBanner(error.message || 'Failed to create vendor profile', 'error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const CurrentStepComponent = steps[currentStep].component;
+  const progress = ((currentStep + 1) / steps.length) * 100;
+
+  return (
+    <div className="become-vendor-page">
+      {/* Header */}
+      <header className="become-vendor-header">
+        <div className="header-content">
+          <div className="logo" onClick={() => navigate('/')}>
+            <img src="/planhive_logo.svg" alt="PlanHive" />
+          </div>
+          <div className="header-actions">
+            <button className="btn-text" onClick={() => navigate('/')}>
+              Questions?
+            </button>
+            <button className="btn-text" onClick={() => {
+              // Save progress to localStorage
+              localStorage.setItem('vendorOnboardingProgress', JSON.stringify({ currentStep, formData }));
+              navigate('/');
+            }}>
+              Save & exit
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Progress bar */}
+      <div className="progress-bar-container">
+        <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+      </div>
+
+      {/* Main content */}
+      <main className="become-vendor-main">
+        <div className="step-container">
+          <div className="step-header">
+            <h1>{steps[currentStep].title}</h1>
+            <p>{steps[currentStep].subtitle}</p>
+          </div>
+
+          <div className="step-content">
+            <CurrentStepComponent
+              formData={formData}
+              onInputChange={handleInputChange}
+              onCategoryToggle={handleCategoryToggle}
+              categories={availableCategories}
+              provinces={canadianProvinces}
+              cities={canadianCities}
+              onAddService={handleAddService}
+              onRemoveService={handleRemoveService}
+              onUpdateService={handleUpdateService}
+              onBusinessHoursChange={handleBusinessHoursChange}
+              onAddPackage={handleAddPackage}
+              onRemovePackage={handleRemovePackage}
+              onAddFAQ={handleAddFAQ}
+              onRemoveFAQ={handleRemoveFAQ}
+            />
+          </div>
+        </div>
+      </main>
+
+      {/* Footer navigation */}
+      <footer className="become-vendor-footer">
+        <div className="footer-content">
+          <button
+            className="btn-back"
+            onClick={handleBack}
+            disabled={currentStep === 0}
+            style={{ visibility: currentStep === 0 ? 'hidden' : 'visible' }}
+          >
+            Back
+          </button>
+          
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            {steps[currentStep]?.skippable && (
+              <button
+                className="btn-skip"
+                onClick={handleNext}
+                disabled={loading}
+              >
+                Skip for now
+              </button>
+            )}
+            
+            <button
+              className="btn-next"
+              onClick={currentStep === steps.length - 1 ? handleSubmit : handleNext}
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="spinner-small"></span>
+              ) : currentStep === steps.length - 1 ? (
+                'Complete Setup'
+              ) : (
+                'Next'
+              )}
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+// Step Components
+function WelcomeStep() {
+  return (
+    <div className="welcome-step">
+      <div className="welcome-icon">🎉</div>
+      <h2>Start your journey as a vendor</h2>
+      <p className="welcome-text">
+        Join thousands of vendors on PlanHive and connect with clients looking for your services.
+      </p>
+      <div className="benefits-grid">
+        <div className="benefit-card">
+          <div className="benefit-icon">📈</div>
+          <h3>Grow Your Business</h3>
+          <p>Reach more clients and increase your bookings</p>
+        </div>
+        <div className="benefit-card">
+          <div className="benefit-icon">💼</div>
+          <h3>Professional Tools</h3>
+          <p>Manage bookings, invoices, and client communications</p>
+        </div>
+        <div className="benefit-card">
+          <div className="benefit-icon">⭐</div>
+          <h3>Build Your Reputation</h3>
+          <p>Collect reviews and showcase your work</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BusinessTypeStep({ formData, onCategoryToggle, categories }) {
+  return (
+    <div className="business-type-step">
+      <div className="categories-grid">
+        {categories.map(category => (
+          <div
+            key={category.id}
+            className={`category-card ${formData.categories.includes(category.id) ? 'selected' : ''}`}
+            onClick={() => onCategoryToggle(category.id)}
+          >
+            <div className="category-icon">{category.icon}</div>
+            <h3>{category.name}</h3>
+            <p>{category.description}</p>
+            {formData.categories.includes(category.id) && (
+              <div className="check-icon">✓</div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BusinessDetailsStep({ formData, onInputChange }) {
+  return (
+    <div className="business-details-step">
+      <div className="form-group">
+        <label>Business Name *</label>
+        <input
+          type="text"
+          placeholder="e.g., Elegant Events Catering"
+          value={formData.businessName}
+          onChange={(e) => onInputChange('businessName', e.target.value)}
+          className="form-input"
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Display Name *</label>
+        <input
+          type="text"
+          placeholder="How your business appears to clients"
+          value={formData.displayName}
+          onChange={(e) => onInputChange('displayName', e.target.value)}
+          className="form-input"
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Business Description</label>
+        <textarea
+          placeholder="Tell clients about your business, services, and what makes you unique..."
+          value={formData.businessDescription}
+          onChange={(e) => onInputChange('businessDescription', e.target.value)}
+          className="form-textarea"
+          rows="6"
+        />
+        <span className="char-count">{formData.businessDescription.length} / 500</span>
+      </div>
+
+      <div className="form-group">
+        <label>Years in Business</label>
+        <input
+          type="number"
+          placeholder="e.g., 5"
+          value={formData.yearsInBusiness}
+          onChange={(e) => onInputChange('yearsInBusiness', e.target.value)}
+          className="form-input"
+          min="0"
+        />
+      </div>
+    </div>
+  );
+}
+
+function ContactStep({ formData, onInputChange }) {
+  return (
+    <div className="contact-step">
+      <div className="form-group">
+        <label>Business Phone *</label>
+        <input
+          type="tel"
+          placeholder="(555) 123-4567"
+          value={formData.businessPhone}
+          onChange={(e) => onInputChange('businessPhone', e.target.value)}
+          className="form-input"
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="contact@yourbusiness.com"
+          value={formData.email}
+          onChange={(e) => onInputChange('email', e.target.value)}
+          className="form-input"
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Website (Optional)</label>
+        <input
+          type="url"
+          placeholder="https://www.yourbusiness.com"
+          value={formData.website}
+          onChange={(e) => onInputChange('website', e.target.value)}
+          className="form-input"
+        />
+      </div>
+    </div>
+  );
+}
+
+function LocationStep({ formData, onInputChange, provinces, cities }) {
+  return (
+    <div className="location-step">
+      <div className="form-group">
+        <label>Street Address (Optional)</label>
+        <input
+          type="text"
+          placeholder="123 Main Street"
+          value={formData.address}
+          onChange={(e) => onInputChange('address', e.target.value)}
+          className="form-input"
+        />
+      </div>
+
+      <div className="form-row">
+        <div className="form-group">
+          <label>City *</label>
+          <input
+            type="text"
+            list="cities-list"
+            placeholder="Select or type city"
+            value={formData.city}
+            onChange={(e) => onInputChange('city', e.target.value)}
+            className="form-input"
+          />
+          <datalist id="cities-list">
+            {cities.map(city => (
+              <option key={city} value={city} />
+            ))}
+          </datalist>
+        </div>
+
+        <div className="form-group">
+          <label>Province *</label>
+          <select
+            value={formData.state}
+            onChange={(e) => onInputChange('state', e.target.value)}
+            className="form-select"
+          >
+            <option value="">Select province</option>
+            {provinces.map(province => (
+              <option key={province} value={province}>{province}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="form-group">
+          <label>Postal Code</label>
+          <input
+            type="text"
+            placeholder="A1A 1A1"
+            value={formData.postalCode}
+            onChange={(e) => onInputChange('postalCode', e.target.value)}
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Country</label>
+          <input
+            type="text"
+            value={formData.country}
+            onChange={(e) => onInputChange('country', e.target.value)}
+            className="form-input"
+            readOnly
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Services Step
+function ServicesStep({ formData, onAddService, onRemoveService, onUpdateService }) {
+  const [serviceName, setServiceName] = useState('');
+  const [serviceDescription, setServiceDescription] = useState('');
+  const [servicePrice, setServicePrice] = useState('');
+  const [serviceDuration, setServiceDuration] = useState('');
+
+  const handleAddService = () => {
+    if (!serviceName.trim() || !servicePrice) {
+      return;
+    }
+
+    onAddService({
+      name: serviceName,
+      description: serviceDescription,
+      price: parseFloat(servicePrice),
+      duration: parseInt(serviceDuration) || 60
+    });
+
+    // Reset form
+    setServiceName('');
+    setServiceDescription('');
+    setServicePrice('');
+    setServiceDuration('');
+  };
+
+  return (
+    <div className="services-step">
+      <div className="step-info-banner">
+        <p>💡 Add your main services now, or skip and add them later from your dashboard</p>
+      </div>
+
+      <div className="add-service-form">
+        <h3>Add a Service</h3>
+        <div className="form-row">
+          <div className="form-group" style={{ flex: 2 }}>
+            <label>Service Name *</label>
+            <input
+              type="text"
+              placeholder="e.g., Wedding Photography Package"
+              value={serviceName}
+              onChange={(e) => setServiceName(e.target.value)}
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label>Price (CAD) *</label>
+            <input
+              type="number"
+              placeholder="0.00"
+              value={servicePrice}
+              onChange={(e) => setServicePrice(e.target.value)}
+              className="form-input"
+              min="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Description</label>
+          <textarea
+            placeholder="Describe what's included in this service..."
+            value={serviceDescription}
+            onChange={(e) => setServiceDescription(e.target.value)}
+            className="form-textarea"
+            rows="3"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Duration (minutes)</label>
+          <input
+            type="number"
+            placeholder="60"
+            value={serviceDuration}
+            onChange={(e) => setServiceDuration(e.target.value)}
+            className="form-input"
+            min="15"
+            step="15"
+          />
+        </div>
+
+        <button
+          type="button"
+          onClick={handleAddService}
+          className="btn-add-item"
+          disabled={!serviceName.trim() || !servicePrice}
+        >
+          <i className="fas fa-plus"></i> Add Service
+        </button>
+      </div>
+
+      {formData.services.length > 0 && (
+        <div className="services-list">
+          <h3>Your Services ({formData.services.length})</h3>
+          {formData.services.map(service => (
+            <div key={service.id} className="service-item">
+              <div className="service-info">
+                <h4>{service.name}</h4>
+                <p>{service.description}</p>
+                <div className="service-meta">
+                  <span className="service-price">${service.price.toFixed(2)}</span>
+                  <span className="service-duration">{service.duration} min</span>
+                </div>
+              </div>
+              <button
+                onClick={() => onRemoveService(service.id)}
+                className="btn-remove-item"
+              >
+                <i className="fas fa-trash"></i>
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Business Hours Step
+function BusinessHoursStep({ formData, onBusinessHoursChange }) {
+  const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+  const dayLabels = {
+    monday: 'Monday',
+    tuesday: 'Tuesday',
+    wednesday: 'Wednesday',
+    thursday: 'Thursday',
+    friday: 'Friday',
+    saturday: 'Saturday',
+    sunday: 'Sunday'
+  };
+
+  const handleCopyToAll = (day) => {
+    const hours = formData.businessHours[day];
+    days.forEach(d => {
+      onBusinessHoursChange(d, 'isAvailable', hours.isAvailable);
+      onBusinessHoursChange(d, 'openTime', hours.openTime);
+      onBusinessHoursChange(d, 'closeTime', hours.closeTime);
+    });
+  };
+
+  return (
+    <div className="business-hours-step">
+      <div className="step-info-banner">
+        <p>💡 Set your typical availability. You can adjust this later and add exceptions for specific dates.</p>
+      </div>
+
+      <div className="hours-list">
+        {days.map(day => (
+          <div key={day} className="hours-item">
+            <div className="hours-day">
+              <input
+                type="checkbox"
+                id={`available-${day}`}
+                checked={formData.businessHours[day].isAvailable}
+                onChange={(e) => onBusinessHoursChange(day, 'isAvailable', e.target.checked)}
+              />
+              <label htmlFor={`available-${day}`} className="day-label">
+                {dayLabels[day]}
+              </label>
+            </div>
+
+            {formData.businessHours[day].isAvailable && (
+              <div className="hours-times">
+                <input
+                  type="time"
+                  value={formData.businessHours[day].openTime}
+                  onChange={(e) => onBusinessHoursChange(day, 'openTime', e.target.value)}
+                  className="time-input"
+                />
+                <span>to</span>
+                <input
+                  type="time"
+                  value={formData.businessHours[day].closeTime}
+                  onChange={(e) => onBusinessHoursChange(day, 'closeTime', e.target.value)}
+                  className="time-input"
+                />
+                <button
+                  onClick={() => handleCopyToAll(day)}
+                  className="btn-copy-hours"
+                  title="Copy to all days"
+                >
+                  <i className="fas fa-copy"></i>
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Packages Step
+function PackagesStep({ formData, onAddPackage, onRemovePackage }) {
+  const [packageName, setPackageName] = useState('');
+  const [packageDescription, setPackageDescription] = useState('');
+  const [packagePrice, setPackagePrice] = useState('');
+  const [packageIncludes, setPackageIncludes] = useState('');
+
+  const handleAddPackage = () => {
+    if (!packageName.trim() || !packagePrice) {
+      return;
+    }
+
+    onAddPackage({
+      name: packageName,
+      description: packageDescription,
+      price: parseFloat(packagePrice),
+      includes: packageIncludes.split('\n').filter(item => item.trim())
+    });
+
+    // Reset form
+    setPackageName('');
+    setPackageDescription('');
+    setPackagePrice('');
+    setPackageIncludes('');
+  };
+
+  return (
+    <div className="packages-step">
+      <div className="step-info-banner">
+        <p>💡 Packages are bundles of services at a special price. Skip if you don't offer packages.</p>
+      </div>
+
+      <div className="add-package-form">
+        <h3>Create a Package</h3>
+        <div className="form-row">
+          <div className="form-group" style={{ flex: 2 }}>
+            <label>Package Name *</label>
+            <input
+              type="text"
+              placeholder="e.g., Complete Wedding Package"
+              value={packageName}
+              onChange={(e) => setPackageName(e.target.value)}
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label>Price (CAD) *</label>
+            <input
+              type="number"
+              placeholder="0.00"
+              value={packagePrice}
+              onChange={(e) => setPackagePrice(e.target.value)}
+              className="form-input"
+              min="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Description</label>
+          <textarea
+            placeholder="Describe this package..."
+            value={packageDescription}
+            onChange={(e) => setPackageDescription(e.target.value)}
+            className="form-textarea"
+            rows="3"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>What's Included (one item per line)</label>
+          <textarea
+            placeholder="Professional photographer&#10;8 hours coverage&#10;Edited digital photos&#10;Online gallery"
+            value={packageIncludes}
+            onChange={(e) => setPackageIncludes(e.target.value)}
+            className="form-textarea"
+            rows="5"
+          />
+        </div>
+
+        <button
+          type="button"
+          onClick={handleAddPackage}
+          className="btn-add-item"
+          disabled={!packageName.trim() || !packagePrice}
+        >
+          <i className="fas fa-plus"></i> Add Package
+        </button>
+      </div>
+
+      {formData.packages.length > 0 && (
+        <div className="packages-list">
+          <h3>Your Packages ({formData.packages.length})</h3>
+          {formData.packages.map(pkg => (
+            <div key={pkg.id} className="package-item">
+              <div className="package-info">
+                <h4>{pkg.name}</h4>
+                <p>{pkg.description}</p>
+                <div className="package-price">${pkg.price.toFixed(2)}</div>
+                {pkg.includes.length > 0 && (
+                  <ul className="package-includes">
+                    {pkg.includes.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <button
+                onClick={() => onRemovePackage(pkg.id)}
+                className="btn-remove-item"
+              >
+                <i className="fas fa-trash"></i>
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Policies Step
+function PoliciesStep({ formData, onInputChange, onAddFAQ, onRemoveFAQ }) {
+  const [faqQuestion, setFaqQuestion] = useState('');
+  const [faqAnswer, setFaqAnswer] = useState('');
+
+  const handleAddFAQ = () => {
+    if (!faqQuestion.trim() || !faqAnswer.trim()) {
+      return;
+    }
+
+    onAddFAQ({
+      question: faqQuestion,
+      answer: faqAnswer
+    });
+
+    setFaqQuestion('');
+    setFaqAnswer('');
+  };
+
+  return (
+    <div className="policies-step">
+      <div className="step-info-banner">
+        <p>💡 Set clear policies to help clients understand your terms. You can update these anytime.</p>
+      </div>
+
+      <div className="form-group">
+        <label>Cancellation Policy</label>
+        <textarea
+          placeholder="Describe your cancellation policy (e.g., 'Full refund if cancelled 30 days before event...')"
+          value={formData.cancellationPolicy}
+          onChange={(e) => onInputChange('cancellationPolicy', e.target.value)}
+          className="form-textarea"
+          rows="4"
+        />
+      </div>
+
+      <div className="form-row">
+        <div className="form-group">
+          <label>Deposit Required (%)</label>
+          <input
+            type="number"
+            placeholder="e.g., 25"
+            value={formData.depositPercentage}
+            onChange={(e) => onInputChange('depositPercentage', e.target.value)}
+            className="form-input"
+            min="0"
+            max="100"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Payment Terms</label>
+          <select
+            value={formData.paymentTerms}
+            onChange={(e) => onInputChange('paymentTerms', e.target.value)}
+            className="form-select"
+          >
+            <option value="">Select payment terms</option>
+            <option value="full_upfront">Full payment upfront</option>
+            <option value="deposit_then_balance">Deposit, then balance before event</option>
+            <option value="installments">Payment installments</option>
+            <option value="net_30">Net 30 days</option>
+            <option value="custom">Custom terms</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="faqs-section">
+        <h3>Frequently Asked Questions</h3>
+        <div className="add-faq-form">
+          <div className="form-group">
+            <label>Question</label>
+            <input
+              type="text"
+              placeholder="e.g., Do you travel for events?"
+              value={faqQuestion}
+              onChange={(e) => setFaqQuestion(e.target.value)}
+              className="form-input"
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Answer</label>
+            <textarea
+              placeholder="Your answer..."
+              value={faqAnswer}
+              onChange={(e) => setFaqAnswer(e.target.value)}
+              className="form-textarea"
+              rows="3"
+            />
+          </div>
+
+          <button
+            type="button"
+            onClick={handleAddFAQ}
+            className="btn-add-item"
+            disabled={!faqQuestion.trim() || !faqAnswer.trim()}
+          >
+            <i className="fas fa-plus"></i> Add FAQ
+          </button>
+        </div>
+
+        {formData.faqs.length > 0 && (
+          <div className="faqs-list">
+            {formData.faqs.map(faq => (
+              <div key={faq.id} className="faq-item">
+                <div className="faq-content">
+                  <h4>{faq.question}</h4>
+                  <p>{faq.answer}</p>
+                </div>
+                <button
+                  onClick={() => onRemoveFAQ(faq.id)}
+                  className="btn-remove-item"
+                >
+                  <i className="fas fa-trash"></i>
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Additional Details Step
+function AdditionalDetailsStep({ formData, onInputChange }) {
+  const [language, setLanguage] = useState('');
+  const [certification, setCertification] = useState('');
+
+  const handleAddLanguage = () => {
+    if (language.trim() && !formData.languages.includes(language.trim())) {
+      onInputChange('languages', [...formData.languages, language.trim()]);
+      setLanguage('');
+    }
+  };
+
+  const handleRemoveLanguage = (lang) => {
+    onInputChange('languages', formData.languages.filter(l => l !== lang));
+  };
+
+  const handleAddCertification = () => {
+    if (certification.trim() && !formData.certifications.includes(certification.trim())) {
+      onInputChange('certifications', [...formData.certifications, certification.trim()]);
+      setCertification('');
+    }
+  };
+
+  const handleRemoveCertification = (cert) => {
+    onInputChange('certifications', formData.certifications.filter(c => c !== cert));
+  };
+
+  return (
+    <div className="additional-details-step">
+      <div className="step-info-banner">
+        <p>💡 These details help build trust with clients. All fields are optional.</p>
+      </div>
+
+      <div className="form-row">
+        <div className="form-group">
+          <label>License Number</label>
+          <input
+            type="text"
+            placeholder="e.g., BL-123456"
+            value={formData.licenseNumber}
+            onChange={(e) => onInputChange('licenseNumber', e.target.value)}
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Team Size</label>
+          <input
+            type="number"
+            placeholder="e.g., 5"
+            value={formData.teamSize}
+            onChange={(e) => onInputChange('teamSize', e.target.value)}
+            className="form-input"
+            min="1"
+          />
+        </div>
+      </div>
+
+      <div className="form-group">
+        <label>
+          <input
+            type="checkbox"
+            checked={formData.insuranceVerified}
+            onChange={(e) => onInputChange('insuranceVerified', e.target.checked)}
+            style={{ marginRight: '0.5rem' }}
+          />
+          I have liability insurance
+        </label>
+      </div>
+
+      <div className="form-group">
+        <label>Languages Spoken</label>
+        <div className="tag-input-container">
+          <input
+            type="text"
+            placeholder="Add a language (e.g., English, French)"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddLanguage())}
+            className="form-input"
+          />
+          <button
+            type="button"
+            onClick={handleAddLanguage}
+            className="btn-add-tag"
+          >
+            Add
+          </button>
+        </div>
+        <div className="tags-list">
+          {formData.languages.map(lang => (
+            <span key={lang} className="tag">
+              {lang}
+              <button onClick={() => handleRemoveLanguage(lang)} className="tag-remove">×</button>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="form-group">
+        <label>Certifications & Awards</label>
+        <div className="tag-input-container">
+          <input
+            type="text"
+            placeholder="Add a certification or award"
+            value={certification}
+            onChange={(e) => setCertification(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddCertification())}
+            className="form-input"
+          />
+          <button
+            type="button"
+            onClick={handleAddCertification}
+            className="btn-add-tag"
+          >
+            Add
+          </button>
+        </div>
+        <div className="tags-list">
+          {formData.certifications.map(cert => (
+            <span key={cert} className="tag">
+              {cert}
+              <button onClick={() => handleRemoveCertification(cert)} className="tag-remove">×</button>
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ReviewStep({ formData, categories }) {
+  const selectedCategories = categories.filter(c => formData.categories.includes(c.id));
+
+  return (
+    <div className="review-step">
+      <div className="review-section">
+        <h3>Business Information</h3>
+        <div className="review-item">
+          <span className="review-label">Business Name:</span>
+          <span className="review-value">{formData.businessName || 'Not provided'}</span>
+        </div>
+        <div className="review-item">
+          <span className="review-label">Display Name:</span>
+          <span className="review-value">{formData.displayName || 'Not provided'}</span>
+        </div>
+        <div className="review-item">
+          <span className="review-label">Categories:</span>
+          <span className="review-value">
+            {selectedCategories.map(c => c.name).join(', ') || 'None selected'}
+          </span>
+        </div>
+      </div>
+
+      <div className="review-section">
+        <h3>Contact Information</h3>
+        <div className="review-item">
+          <span className="review-label">Phone:</span>
+          <span className="review-value">{formData.businessPhone || 'Not provided'}</span>
+        </div>
+        <div className="review-item">
+          <span className="review-label">Email:</span>
+          <span className="review-value">{formData.email || 'Not provided'}</span>
+        </div>
+        <div className="review-item">
+          <span className="review-label">Website:</span>
+          <span className="review-value">{formData.website || 'Not provided'}</span>
+        </div>
+      </div>
+
+      <div className="review-section">
+        <h3>Location</h3>
+        <div className="review-item">
+          <span className="review-label">City:</span>
+          <span className="review-value">{formData.city || 'Not provided'}</span>
+        </div>
+        <div className="review-item">
+          <span className="review-label">Province:</span>
+          <span className="review-value">{formData.state || 'Not provided'}</span>
+        </div>
+        <div className="review-item">
+          <span className="review-label">Country:</span>
+          <span className="review-value">{formData.country}</span>
+        </div>
+      </div>
+
+      <div className="review-note">
+        <p>✨ You can update all of this information later in your vendor dashboard.</p>
+      </div>
+    </div>
+  );
+}
+
+export default BecomeVendorPage;

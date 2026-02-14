@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Planbeau - Book Event Vendors for Weddings, Parties & Corporate Events</title>
+    <meta name="description" content="Find and book the best event vendors for your wedding, party, or corporate event. Browse photographers, caterers, DJs, florists, and more. Simple booking, secure payments.">
+    <meta name="keywords" content="event vendors, wedding vendors, party planning, book photographer, book caterer, book DJ, event booking platform, wedding planning, corporate events, Toronto vendors">
+    <meta name="author" content="Planbeau Inc.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.planbeau.com/">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/planbeau_fav_icon.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/planbeau_logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#222222">
+    
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-70EZLB4JGE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-70EZLB4JGE');
+    </script>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.planbeau.com/">
+    <meta property="og:title" content="Planbeau - Book Event Vendors for Weddings, Parties & Corporate Events">
+    <meta property="og:description" content="Find and book the best event vendors for your wedding, party, or corporate event. Browse photographers, caterers, DJs, florists, and more.">
+    <meta property="og:image" content="https://www.planbeau.com/images/og-image.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Planbeau">
+    <meta property="og:locale" content="en_CA">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.planbeau.com/">
+    <meta name="twitter:title" content="Planbeau - Book Event Vendors for Weddings, Parties & Corporate Events">
+    <meta name="twitter:description" content="Find and book the best event vendors for your wedding, party, or corporate event. Browse photographers, caterers, DJs, florists, and more.">
+    <meta name="twitter:image" content="https://www.planbeau.com/images/og-image.svg">
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Planbeau",
+      "url": "https://www.planbeau.com",
+      "logo": "https://www.planbeau.com/images/logo.png",
+      "description": "Find and book the best event vendors for your wedding, party, or corporate event.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "sameAs": [
+        "https://www.instagram.com/planbeau",
+        "https://www.facebook.com/planbeau",
+        "https://twitter.com/planbeau"
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Planbeau",
+      "url": "https://www.planbeau.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.planbeau.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Maps API with Places API -->
+    <script>
+      // Define initMap globally to prevent Google Maps callback error
+      window.initMap = function() {
+        console.log('Google Maps API loaded');
+      };
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPhhp2rAt1VTrIzjgagJXZPZ_nc7K_BVo&libraries=places,geometry,marker&callback=initMap&v=weekly&loading=async"></script>
+    <!-- MarkerClusterer for Google Maps markers clustering -->
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Facebook SDK for JavaScript -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '889572423816651',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v18.0'
+        });
+        window.fbSDKInitialized = true;
+      };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <!-- Add Stripe.js for payment processing -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Add FullCalendar for booking dates -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+    <!-- Flatpickr for modern date picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+    <!-- Add Socket.IO for chat functionality -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <!-- Add Chart.js for analytics graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Invoice PDF libs -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jQuery (required for Select2) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Add Select2 for enhanced dropdowns -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+<body style="overflow: auto;">
+    <noscript>
+      <div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <header style="text-align: center; margin-bottom: 40px;">
+          <img src="/images/logo.png" alt="Planbeau" style="height: 50px; margin-bottom: 20px;">
+          <h1 style="font-size: 32px; color: #222; margin: 0;">Book Event Vendors for Your Special Occasion</h1>
+          <p style="font-size: 18px; color: #666; margin-top: 16px;">Find and book the best photographers, caterers, DJs, florists, and more for weddings, parties, and corporate events.</p>
+        </header>
+        <main>
+          <section style="margin-bottom: 40px;">
+            <h2 style="font-size: 24px; color: #222;">Popular Vendor Categories</h2>
+            <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 16px;">
+              <li><a href="/search?category=photography" style="color: #222; text-decoration: none; padding: 12px 24px; background: #f7f7f7; border-radius: 8px; display: inline-block;">Photography</a></li>
+              <li><a href="/search?category=catering" style="color: #222; text-decoration: none; padding: 12px 24px; background: #f7f7f7; border-radius: 8px; display: inline-block;">Catering</a></li>
+              <li><a href="/search?category=dj" style="color: #222; text-decoration: none; padding: 12px 24px; background: #f7f7f7; border-radius: 8px; display: inline-block;">DJs & Music</a></li>
+              <li><a href="/search?category=florist" style="color: #222; text-decoration: none; padding: 12px 24px; background: #f7f7f7; border-radius: 8px; display: inline-block;">Florists</a></li>
+              <li><a href="/search?category=videography" style="color: #222; text-decoration: none; padding: 12px 24px; background: #f7f7f7; border-radius: 8px; display: inline-block;">Videography</a></li>
+              <li><a href="/search?category=makeup" style="color: #222; text-decoration: none; padding: 12px 24px; background: #f7f7f7; border-radius: 8px; display: inline-block;">Makeup Artists</a></li>
+            </ul>
+          </section>
+          <section style="margin-bottom: 40px;">
+            <h2 style="font-size: 24px; color: #222;">Why Choose Planbeau?</h2>
+            <ul style="color: #666; line-height: 1.8;">
+              <li><strong>Verified Vendors</strong> - All vendors are reviewed and verified for quality</li>
+              <li><strong>Secure Payments</strong> - Safe and secure payment processing</li>
+              <li><strong>Easy Booking</strong> - Book vendors in just a few clicks</li>
+              <li><strong>Direct Messaging</strong> - Communicate directly with vendors</li>
+            </ul>
+          </section>
+          <section>
+            <h2 style="font-size: 24px; color: #222;">Become a Vendor</h2>
+            <p style="color: #666;">Are you an event professional? <a href="/become-a-vendor" style="color: #222; font-weight: 600;">Join Planbeau</a> and start receiving booking requests from clients in your area.</p>
+          </section>
+        </main>
+        <footer style="margin-top: 60px; padding-top: 40px; border-top: 1px solid #eee; text-align: center; color: #666;">
+          <p>&copy; 2026 Planbeau Inc. Toronto, ON, Canada</p>
+          <p><a href="/about" style="color: #666;">About</a> | <a href="/contact" style="color: #666;">Contact</a> | <a href="/privacy" style="color: #666;">Privacy</a> | <a href="/terms" style="color: #666;">Terms</a></p>
+        </footer>
+      </div>
+    </noscript>
+    <div id="root"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# robots.txt for Planbeau
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.planbeau.com/sitemap.xml
+
+# Disallow private/admin areas
+Disallow: /dashboard
+Disallow: /admin
+Disallow: /api/
+Disallow: /static/js/*.map
+Disallow: /static/css/*.map
+
+# Allow search engines to crawl important pages
+Allow: /
+Allow: /search
+Allow: /become-a-vendor
+Allow: /blog
+Allow: /forum
+Allow: /vendor/*
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms

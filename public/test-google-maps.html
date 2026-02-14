@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps API Test</title>
+</head>
+<body>
+    <h1>Google Maps API Test</h1>
+    <input id="autocomplete" type="text" placeholder="Start typing an address..." style="width: 400px; padding: 10px; font-size: 16px;">
+    <div id="status"></div>
+    
+    <script>
+        const API_KEY = 'AIzaSyCPhhp2rAt1VTrIzjgagJXZPZ_nc7K_BVo';
+        const statusDiv = document.getElementById('status');
+        
+        function updateStatus(message, isError = false) {
+            console.log(message);
+            statusDiv.innerHTML += `<p style="color: ${isError ? 'red' : 'green'}">${message}</p>`;
+        }
+        
+        updateStatus('🔄 Loading Google Maps API...');
+        
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initAutocomplete`;
+        script.async = true;
+        script.defer = true;
+        script.onerror = () => {
+            updateStatus('❌ Failed to load Google Maps API script', true);
+        };
+        document.head.appendChild(script);
+        
+        window.initAutocomplete = function() {
+            updateStatus('✅ Google Maps API loaded successfully');
+            
+            try {
+                const input = document.getElementById('autocomplete');
+                const autocomplete = new google.maps.places.Autocomplete(input, {
+                    types: ['address'],
+                    componentRestrictions: { country: 'ca' }
+                });
+                
+                autocomplete.addListener('place_changed', () => {
+                    const place = autocomplete.getPlace();
+                    updateStatus(`🎯 Place selected: ${place.formatted_address || 'No address'}`);
+                });
+                
+                updateStatus('✅ Autocomplete initialized successfully');
+            } catch (error) {
+                updateStatus(`❌ Error initializing autocomplete: ${error.message}`, true);
+            }
+        };
+    </script>
+</body>
+</html>

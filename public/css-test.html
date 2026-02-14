@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Test - Mobile Override</title>
+    <style>
+        /* Test the mobile CSS rules */
+        @media screen and (max-width: 768px) {
+            .test-header {
+                background: red !important;
+                color: white !important;
+                padding: 20px !important;
+                text-align: center !important;
+            }
+            
+            .test-button {
+                display: none !important;
+            }
+            
+            .test-search {
+                height: 32px !important;
+                background: blue !important;
+                color: white !important;
+            }
+        }
+        
+        .test-header {
+            background: green;
+            color: black;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .test-button {
+            display: block;
+            background: yellow;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .test-search {
+            height: 60px;
+            background: gray;
+            color: black;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-header">
+        <h1>CSS Media Query Test</h1>
+        <p>If you're on mobile (≤768px), this should be RED background</p>
+        <p>If you're on desktop, this should be GREEN background</p>
+    </div>
+    
+    <div class="test-button">
+        <p>This button should be HIDDEN on mobile</p>
+    </div>
+    
+    <div class="test-search">
+        <p>On mobile: BLUE background, 32px height</p>
+        <p>On desktop: GRAY background, 60px height</p>
+    </div>
+    
+    <div style="margin: 20px; padding: 20px; border: 2px solid #333;">
+        <h2>Instructions:</h2>
+        <ol>
+            <li><strong>Resize your browser window</strong> to less than 768px wide</li>
+            <li><strong>Or use mobile device/dev tools</strong></li>
+            <li><strong>Check if colors change</strong> according to the rules above</li>
+        </ol>
+        
+        <p><strong>If the CSS changes work here, then the mobile-override.css will work on the main site!</strong></p>
+        
+        <a href="http://localhost:3000" style="display: inline-block; background: #007bff; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin-top: 20px;">
+            🚀 Test Main Site Now
+        </a>
+    </div>
+</body>
+</html>

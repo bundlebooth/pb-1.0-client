@@ -1,0 +1,29 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F86E8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3A6FD4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="200" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="1100" cy="530" r="250" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="900" cy="150" r="100" fill="rgba(255,255,255,0.03)"/>
+  
+  <!-- Logo placeholder - white text -->
+  <text x="600" y="250" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="72" font-weight="700" fill="white" text-anchor="middle">PlanBeau</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="32" font-weight="400" fill="rgba(255,255,255,0.9)" text-anchor="middle">Book Event Vendors for Your Special Occasion</text>
+  
+  <!-- Categories -->
+  <text x="600" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="300" fill="rgba(255,255,255,0.7)" text-anchor="middle">Photography • Catering • DJs • Florists • Videography • Makeup Artists</text>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="50" fill="rgba(0,0,0,0.2)"/>
+  <text x="600" y="612" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="500" fill="rgba(255,255,255,0.8)" text-anchor="middle">www.planbeau.com</text>
+</svg>

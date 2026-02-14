@@ -1,0 +1,138 @@
+/* Remove all borders and hover effects from vendor cards */
+.vendor-card {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.vendor-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.vendor-card:focus,
+.vendor-card:focus-visible,
+.vendor-card:focus-within,
+.vendor-card:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove any blue outline/border from all vendor card elements */
+.vendor-card *,
+.vendor-card *:focus,
+.vendor-card *:focus-visible {
+  outline: none !important;
+}
+
+/* Ensure image container has no border */
+.vendor-card > div:first-child {
+  border: none !important;
+  outline: none !important;
+}
+
+/* FORCE VendorCard Mobile Fixes - OVERRIDE ALL */
+@media (max-width: 768px) {
+  .vendor-card {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .vendor-card-content {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 10px 0 4px 0 !important;
+  }
+  
+  /* FORCE remove borders from ALL vendor card elements */
+  .vendor-card,
+  .vendor-card *,
+  .vendor-card > div,
+  .vendor-card > div > div,
+  .vendor-card-content,
+  .vendor-card-content > div {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* FORCE image container clean */
+  .vendor-card > div:first-child {
+    border: none !important;
+    outline: none !important;
+    border-radius: 12px !important;
+  }
+  
+  /* FORCE remove borders from image */
+  .vendor-card-image {
+    border: none !important;
+    outline: none !important;
+  }
+  
+  /* FORCE no borders on text elements */
+  .vendor-card-business-name,
+  .vendor-card div {
+    border: none !important;
+    outline: none !important;
+  }
+  
+  /* FORCE vendor grid to be clean */
+  .vendor-grid .vendor-card {
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* ============================================= */
+  /* MOBILE TEXT STYLES - MATCH DESKTOP EXACTLY   */
+  /* ============================================= */
+  
+  /* Business Name - Black #222222, semibold 600, 15px */
+  .vendor-card .vendor-card-name-row {
+    font-size: 15px !important;
+    color: #222222 !important;
+    font-weight: 600 !important;
+    line-height: 19px !important;
+  }
+  
+  .vendor-card .vendor-card-business-name {
+    font-size: 15px !important;
+    color: #222222 !important;
+    font-weight: 600 !important;
+    line-height: 19px !important;
+  }
+  
+  /* Location - Gray #717171, normal 400, 13px */
+  .vendor-card .vendor-card-location {
+    font-size: 13px !important;
+    color: #717171 !important;
+    font-weight: 400 !important;
+    line-height: 17px !important;
+  }
+  
+  /* Price Row - 13px */
+  .vendor-card .vendor-card-price-row {
+    font-size: 13px !important;
+    line-height: 17px !important;
+  }
+  
+  /* Analytics badge - DO NOT override color, let inline style work */
+  .vendor-card .vendor-card-analytics-badge {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    /* Color is set via inline style based on badge type - do not override */
+  }
+  
+  .vendor-card .vendor-card-analytics-badge i {
+    font-size: 11px !important;
+  }
+}

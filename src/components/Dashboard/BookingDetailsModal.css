@@ -1,0 +1,95 @@
+/* Booking Details Modal Styles - Uses UniversalModal */
+
+/* Status Section */
+.bdm-status-section {
+  margin-bottom: 20px;
+}
+
+.bdm-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.bdm-status-badge i {
+  font-size: 11px;
+}
+
+/* Status Colors */
+.bdm-status-success,
+.bdm-status-green {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.bdm-status-warning,
+.bdm-status-yellow,
+.bdm-status-orange {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.bdm-status-danger,
+.bdm-status-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.bdm-status-info,
+.bdm-status-blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.bdm-status-neutral,
+.bdm-status-gray {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.bdm-decline-reason {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #dc2626;
+}
+
+/* Details List */
+.bdm-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bdm-detail-row {
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.bdm-detail-row:last-child {
+  border-bottom: none;
+}
+
+.bdm-detail-label {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.bdm-detail-value {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.bdm-detail-value.highlight {
+  color: #059669;
+  font-weight: 600;
+}

@@ -1,0 +1,1175 @@
+/* Vendor Profile Page Styles - Complete from vendor-profile.html */
+:root {
+    --primary: #4F86E8;
+    --primary-dark: #3A6FD4;
+    --secondary: #f7fafc;
+    --surface-bg: white;
+    --accent: #ff6b6b;
+    --text: #2d3748;
+    --text-light: #718096;
+    --border: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius: 12px;
+    --bg-dark: #1a202c;
+}
+
+/* Skeleton Loading Animation */
+.skeleton {
+    background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.profile-container {
+    max-width: 1216px; /* 1280 * 0.95 */
+    margin: 0 auto;
+    padding: 1.425rem 4.75rem; /* 1.5 * 0.95, 5 * 0.95 */
+    background: #ffffff !important;
+    min-height: 100vh;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 2rem;
+}
+
+.back-button:hover {
+    background-color: rgba(94, 114, 228, 0.1);
+}
+
+/* Vendor Profile Action Buttons */
+.vendor-profile-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.vendor-action-btn {
+    min-width: 100px;
+    height: 40px;
+    padding: 0 1rem;
+    background: white;
+    border: 1px solid #222;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: #222;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.vendor-action-btn:hover {
+    background: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vendor-action-btn.active {
+    color: #e31c5f;
+    border-color: #e31c5f;
+}
+
+.vendor-action-btn.active:hover {
+    background: #fff5f8;
+}
+
+.vendor-action-btn i {
+    pointer-events: none;
+    font-size: 0.8rem;
+}
+
+/* Smaller icons throughout */
+.btn i,
+.sidebar-card .btn i {
+    font-size: 0.85rem;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* Vendor Profile Header */
+.vendor-profile-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.vendor-profile-info {
+    flex: 1;
+}
+
+.vendor-profile-info h1 {
+    font-size: 1.544rem; /* 1.625 * 0.95 */
+    font-weight: 600;
+    margin-bottom: 0.475rem; /* 0.5 * 0.95 */
+    color: #222;
+    line-height: 1.25;
+}
+
+/* Vendor Profile Image Gallery Layout - Airbnb Style */
+/* Fixed max-width gallery that stays centered - doesn't stretch */
+.image-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    max-width: 1120px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    aspect-ratio: 2.02 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0;
+    background-color: transparent;
+    position: relative;
+}
+
+/* Left side: large image - fills its grid cell */
+.image-gallery > .gallery-item.large-image {
+    border-radius: 12px 0 0 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-gallery > .gallery-item.large-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Right side: 2x2 grid for thumbnails */
+.image-gallery > .thumbnails-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+}
+
+.thumbnails-container > .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.thumbnails-container > .gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Border radius ONLY for outer corner images */
+/* Top-right image - rounded on top-right corner only */
+.thumbnails-container > .gallery-item:nth-child(2) {
+    border-radius: 0 16px 0 0 !important;
+}
+
+/* Bottom-right image - rounded on bottom-right corner only */
+.thumbnails-container > .gallery-item:nth-child(4) {
+    border-radius: 0 0 16px 0 !important;
+}
+
+/* Top-left and bottom-left thumbnails have no rounded corners */
+.thumbnails-container > .gallery-item:nth-child(1),
+.thumbnails-container > .gallery-item:nth-child(3) {
+    border-radius: 0 !important;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #f3f4f6;
+    color: var(--text-light);
+    border: none !important;
+    outline: none !important;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gallery-item:hover::after {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    transition: none !important;
+    display: block;
+    transform: none !important;
+}
+
+
+/* See all overlay on last image */
+.see-all-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    padding: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Show all photos button */
+.show-all-photos-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: white;
+    border: 1px solid #222;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #222;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.show-all-photos-btn:hover {
+    background: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.show-all-photos-btn i {
+    font-size: 0.875rem;
+}
+
+/* Content Layout */
+.vendor-content-layout {
+    display: grid;
+    grid-template-columns: 1fr 304px; /* 320 * 0.95 */
+    gap: 4.75rem; /* 5 * 0.95 */
+    margin-top: 1.9rem; /* 2 * 0.95 */
+    padding-top: 1.9rem; /* 2 * 0.95 */
+    border-top: 1px solid #ebebeb;
+}
+
+/* Main Profile Layout - for vendor info + sidebar */
+.vendor-profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 304px;
+    gap: 4.75rem;
+    margin-top: 1.5rem;
+}
+
+.vendor-main-content {
+    min-width: 0;
+}
+
+.vendor-sidebar {
+    position: sticky;
+    top: 80px; /* Account for header height */
+    align-self: start;
+    z-index: 50;
+    max-height: calc(100vh - 100px);
+    overflow: visible; /* Allow dropdowns/calendars to extend beyond sidebar */
+}
+
+/* Section Styles */
+.content-section {
+    background: transparent;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 0;
+}
+
+.content-section:first-child {
+    padding-top: 0;
+}
+
+.content-section:last-child {
+    border-bottom: none;
+}
+
+.content-section h2 {
+    font-size: 1.306rem; /* 1.375 * 0.95 */
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 1.425rem; /* 1.5 * 0.95 */
+}
+
+.content-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.75rem;
+}
+
+/* Service Cards - Match Dashboard Style */
+.service-package-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.service-card-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.service-card-description {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.service-card-details {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.service-card-details span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.service-image-container {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--secondary);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-icon {
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+/* Review Cards - Clean Airbnb style */
+.review-card {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 24px 0;
+    border: none;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 0;
+}
+
+.review-card:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #222;
+}
+
+.review-rating {
+    color: #222;
+    font-size: 14px;
+}
+
+.review-comment {
+    color: #222;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #717171;
+    margin-top: 4px;
+}
+
+/* Venue Recommendations Section */
+.venue-recommendations-section {
+    width: 100%;
+    background: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+}
+
+.venue-recommendations-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.venue-recommendations-header {
+    margin-bottom: 1.5rem;
+}
+
+.venue-recommendations-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.venue-recommendation-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.venue-recommendation-tab {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: none;
+    color: #6b7280;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+
+.venue-recommendation-tab:hover {
+    color: var(--text);
+}
+
+.venue-recommendation-tab.active {
+    background: #1f2937;
+    color: white;
+    border-bottom-color: var(--primary);
+}
+
+.venue-tab-content {
+    position: relative;
+}
+
+.venues-scroll-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.venues-grid {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.venues-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.recommendation-venue-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.recommendation-venue-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.recommendation-venue-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+.recommendation-venue-info {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.recommendation-venue-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.recommendation-venue-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.recommendation-venue-rating .stars {
+    color: #fbbf24;
+}
+
+.recommendation-venue-location {
+    color: #6b7280;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* Sidebar Card */
+.sidebar-card {
+    background: white;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.sidebar-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.875rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: #222222;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #000000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline {
+    background-color: white;
+    border: 1px solid #222;
+    color: #222;
+}
+
+.btn-outline:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-full-width {
+    width: 100%;
+}
+
+/* Vendor Features Sections */
+.vendor-feature-category {
+    margin-bottom: 2rem;
+}
+
+.vendor-feature-category h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.75rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--secondary);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text);
+    transition: all 0.2s;
+}
+
+.feature-item:hover {
+    background: #edf2f7;
+    transform: translateX(4px);
+}
+
+.feature-item i {
+    color: var(--primary);
+    font-size: 0.8rem;
+    min-width: 16px;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.portfolio-album {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface-bg);
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.portfolio-album:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-album-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.portfolio-album-info {
+    padding: 1rem;
+}
+
+.portfolio-album-info h4 {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.portfolio-album-info p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.portfolio-album-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Social Media Links */
+.social-icon-small {
+    width: 18px;
+    height: 18px;
+    display: block;
+    border-radius: 4px;
+    opacity: 0.8;
+    transition: all 0.2s;
+}
+
+.social-icon-small:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Team Member Cards */
+.team-member-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.team-member-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.team-member-name {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.team-member-role {
+    color: var(--primary);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.team-member-bio {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    /* Hide header on vendor profile page on mobile - gallery has its own nav */
+    .vendor-profile-page .site-header {
+        display: none !important;
+    }
+    
+    /* Hide Guest Favourite description text on mobile */
+    .guest-favourite-description {
+        display: none !important;
+    }
+    
+    /* Prevent horizontal scroll on entire page */
+    .profile-container {
+        padding: 0;
+        padding-bottom: 80px;
+        margin: 0;
+        max-width: 100%;
+        overflow-x: hidden;
+        background: transparent;
+    }
+    
+    /* Mobile gallery container - full width */
+    .mobile-gallery-container {
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        border-radius: 0 !important;
+    }
+    
+    /* Bottom sheet content wrapper - overlaps the image */
+    .mobile-content-sheet {
+        position: relative;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-top: -20px;
+        background: white;
+        border-radius: 24px 24px 0 0;
+        padding: 24px 20px 0 20px;
+        z-index: 10;
+        min-height: calc(100vh - 300px);
+    }
+    
+    /* Content below gallery needs padding */
+    .vendor-profile-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0;
+    }
+    
+    .vendor-profile-layout > div:first-child {
+        order: 2;
+    }
+    
+    .vendor-profile-layout > .vendor-sidebar {
+        order: 1;
+    }
+
+    .vendor-content-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .vendor-sidebar {
+        position: static;
+        order: -1;
+        width: 100%;
+    }
+
+    .vendor-profile-header {
+        display: none !important;
+    }
+
+    .vendor-profile-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .vendor-profile-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .vendor-action-btn {
+        min-width: 90px;
+        height: 36px;
+        padding: 0 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    /* Hide desktop gallery on mobile - mobile gallery component handles it */
+    .image-gallery {
+        display: none !important;
+    }
+
+    .show-all-photos-btn {
+        bottom: 12px;
+        right: 12px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .venue-recommendation-tabs {
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .venue-recommendation-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .venue-recommendation-tab {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    /* Sidebar cards full width on mobile */
+    .sidebar-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Content sections full width */
+    .content-section {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Features grid responsive */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-item {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Vendor features section - keep 2-column layout but wrap features */
+    .vendor-feature-row {
+        grid-template-columns: 140px 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .vendor-feature-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        grid-template-columns: unset !important;
+        gap: 0.75rem 1.5rem !important;
+    }
+    
+    /* Portfolio grid responsive */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Venue recommendations responsive */
+    .venues-grid {
+        padding: 0.5rem 0;
+    }
+    
+    .recommendation-venue-card {
+        width: 85vw;
+        max-width: 280px;
+    }
+    
+    /* Business hours table */
+    .sidebar-card div[style*="flex: '0 0 100px'"] {
+        flex: 0 0 80px !important;
+    }
+    
+    /* Fix inline styled grids on mobile */
+    div[style*="grid-template-columns: repeat(auto-fill"] {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Ensure all text wraps properly */
+    .profile-container * {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Fix vendor info layout on mobile */
+    .profile-container div[style*="display: flex"][style*="gap: 1rem"] {
+        flex-wrap: wrap;
+    }
+    
+    /* Show sidebar at top on mobile */
+    .vendor-profile-layout > .vendor-sidebar {
+        width: 100%;
+        order: 1;
+    }
+    
+    /* Ensure main content takes full width */
+    .vendor-profile-layout > div:first-child {
+        width: 100%;
+        order: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .vendor-profile-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.1rem;
+    }
+
+    .service-package-card {
+        padding: 0.75rem;
+    }
+
+    .review-card {
+        padding: 1rem;
+    }
+
+    .recommendation-venue-card {
+        width: 240px;
+    }
+}
+
+/* Mobile Sticky Booking Bar - Giggster Style */
+.sticky-booking-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sticky-booking-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 12px 16px;
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999999;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-top: 1px solid #ebebeb;
+    }
+    
+    /* Giggster-style layout */
+    .sticky-booking-bar.giggster-style {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .sticky-booking-bar .sticky-bar-price {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .sticky-booking-bar .price-amount {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #222;
+    }
+    
+    .sticky-booking-bar .price-type {
+        font-size: 0.75rem;
+        color: #717171;
+    }
+    
+    .sticky-booking-bar .sticky-bar-buttons {
+        display: flex;
+        gap: 8px;
+    }
+    
+    .sticky-booking-bar .message-btn-giggster {
+        padding: 12px 20px;
+        background: white;
+        color: #222;
+        border: 1px solid #222;
+        border-radius: 8px;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .sticky-booking-bar .message-btn-giggster:hover,
+    .sticky-booking-bar .message-btn-giggster:active {
+        background: #f7f7f7;
+    }
+    
+    .sticky-booking-bar .reserve-btn-giggster {
+        padding: 12px 24px;
+        background: #222222;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .sticky-booking-bar .reserve-btn-giggster:hover,
+    .sticky-booking-bar .reserve-btn-giggster:active {
+        background: #000000;
+    }
+    
+    /* Legacy styles for old button format */
+    .sticky-booking-bar .message-btn,
+    .sticky-booking-bar .book-btn {
+        flex: 0 1 auto;
+        padding: 6px 12px;
+        background: transparent;
+        border: none !important;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        color: #6b7280;
+        font-size: 10px;
+        font-weight: 500;
+        transition: all 0.15s ease;
+        position: relative;
+        z-index: 1;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        user-select: none;
+    }
+    
+    .sticky-booking-bar .message-btn i,
+    .sticky-booking-bar .book-btn i {
+        font-size: 20px;
+        pointer-events: none;
+    }
+    
+    .sticky-booking-bar .message-btn span,
+    .sticky-booking-bar .book-btn span {
+        pointer-events: none;
+        font-weight: 500;
+    }
+    
+    /* Add padding to bottom of page to account for sticky bar */
+    .profile-container {
+        padding-bottom: 80px;
+    }
+}

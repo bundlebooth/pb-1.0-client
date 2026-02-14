@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+        }
+        
+        .auto-filled {
+            background-color: #f3f4f6;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pac-container {
+            background-color: white !important;
+            z-index: 9999999 !important;
+            border: 2px solid #007bff !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+            margin-top: 4px !important;
+            font-family: inherit !important;
+            pointer-events: auto !important;
+            position: absolute !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: auto !important;
+            min-width: 300px !important;
+        }
+        
+        .pac-item {
+            padding: 12px 16px !important;
+            cursor: pointer !important;
+            border-bottom: 1px solid #EBEBEB !important;
+            font-size: 14px !important;
+        }
+        
+        .pac-item:hover {
+            background: #f0f8ff !important;
+        }
+        
+        .service-areas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .service-area-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #f0f9ff;
+            border: 1px solid #3b82f6;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #1e40af;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+            margin-left: 0.25rem;
+        }
+        
+        .add-btn {
+            padding: 0.875rem 1.5rem;
+            background-color: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .service-area-input-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-area-input {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 700px; margin: 0 auto;">
+        <!-- Street Address -->
+        <div class="form-group">
+            <label for="address">Street Address <span style="color: red;">*</span></label>
+            <input type="text" id="address" placeholder="Start typing your address...">
+            <small style="color: #f59e0b; font-size: 0.85rem; margin-top: 0.5rem; display: block;">
+                🔥 Start typing your address and Google will suggest it!
+            </small>
+        </div>
+
+        <!-- City and Province -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="city">City <span style="color: red;">*</span></label>
+                <input type="text" id="city" placeholder="Toronto" class="auto-filled">
+            </div>
+            <div class="form-group">
+                <label for="province">Province <span style="color: red;">*</span></label>
+                <input type="text" id="province" placeholder="Ontario" class="auto-filled">
+            </div>
+        </div>
+
+        <!-- Postal Code and Country -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="postalCode">Postal Code <span style="color: red;">*</span></label>
+                <input type="text" id="postalCode" placeholder="M5H 2N2" class="auto-filled">
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" id="country" value="Canada" readonly class="auto-filled">
+            </div>
+        </div>
+
+        <!-- Service Areas -->
+        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0;">
+        <div class="form-group">
+            <label for="serviceArea">Service Areas <span style="color: red;">*</span></label>
+            <p style="color: #6b7280; font-size: 0.875rem; margin-bottom: 1rem;">
+                Add the cities or regions where you offer your services
+            </p>
+            
+            <div class="service-area-input-row">
+                <input type="text" id="serviceArea" placeholder="Start typing a city name..." class="service-area-input">
+                <button type="button" class="add-btn" onclick="addServiceArea()">
+                    <i class="fas fa-plus"></i> Add
+                </button>
+            </div>
+
+            <small style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 1rem; display: block;">
+                🔥 Start typing a city name and Google will suggest it!
+            </small>
+
+            <div id="serviceAreas" class="service-areas"></div>
+        </div>
+    </div>
+
+    <!-- Google Maps API -->
+    <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPhhp2rAt1VTrIzjgagJXZPZ_nc7K_BVo&libraries=places&callback=initMap">
+    </script>
+
+    <script>
+        let addressAutocomplete;
+        let serviceAreaAutocomplete;
+        let serviceAreas = [];
+        
+        function initMap() {
+            console.log('🎉 Google Maps API loaded!');
+            
+            // Address Autocomplete
+            const addressInput = document.getElementById('address');
+            addressAutocomplete = new window.google.maps.places.Autocomplete(addressInput, {
+                types: ['address'],
+                componentRestrictions: { country: 'ca' }
+            });
+            
+            addressAutocomplete.addListener('place_changed', function() {
+                const place = addressAutocomplete.getPlace();
+                console.log('🎯 Address selected:', place);
+                
+                if (place.address_components) {
+                    const comps = place.address_components;
+                    const pick = (type) => comps.find(c => c.types.includes(type))?.long_name || '';
+                    
+                    const streetNumber = pick('street_number');
+                    const route = pick('route');
+                    const fullAddress = streetNumber && route ? `${streetNumber} ${route}` : place.formatted_address;
+                    
+                    const city = pick('locality') || pick('sublocality') || pick('postal_town') || '';
+                    const province = pick('administrative_area_level_1') || '';
+                    const postalCode = pick('postal_code') || '';
+                    const country = pick('country') || 'Canada';
+                    
+                    // Update fields
+                    document.getElementById('address').value = fullAddress;
+                    document.getElementById('city').value = city;
+                    document.getElementById('province').value = province;
+                    document.getElementById('postalCode').value = postalCode;
+                    document.getElementById('country').value = country;
+                    
+                    // Send data to parent
+                    sendDataToParent();
+                    
+                    console.log('✅ Address fields updated!');
+                }
+            });
+            
+            // Service Area Autocomplete
+            const serviceAreaInput = document.getElementById('serviceArea');
+            serviceAreaAutocomplete = new window.google.maps.places.Autocomplete(serviceAreaInput, {
+                types: ['(cities)'],
+                componentRestrictions: { country: 'ca' }
+            });
+            
+            serviceAreaAutocomplete.addListener('place_changed', function() {
+                const place = serviceAreaAutocomplete.getPlace();
+                console.log('🎯 City selected:', place);
+                
+                if (place.address_components) {
+                    const comps = place.address_components;
+                    const pick = (type) => comps.find(c => c.types.includes(type))?.long_name || '';
+                    const city = pick('locality') || pick('postal_town') || '';
+                    const areaToAdd = city || place.name || place.formatted_address?.split(',')[0];
+                    
+                    if (areaToAdd && !serviceAreas.includes(areaToAdd)) {
+                        serviceAreas.push(areaToAdd);
+                        updateServiceAreasDisplay();
+                        sendDataToParent();
+                        console.log('✅ Added service area:', areaToAdd);
+                    }
+                    
+                    serviceAreaInput.value = '';
+                }
+            });
+            
+            console.log('✅ Autocomplete initialized');
+        }
+        
+        function addServiceArea() {
+            const input = document.getElementById('serviceArea');
+            const value = input.value.trim();
+            if (value && !serviceAreas.includes(value)) {
+                serviceAreas.push(value);
+                updateServiceAreasDisplay();
+                sendDataToParent();
+                input.value = '';
+            }
+        }
+        
+        function removeServiceArea(index) {
+            serviceAreas.splice(index, 1);
+            updateServiceAreasDisplay();
+            sendDataToParent();
+        }
+        
+        function updateServiceAreasDisplay() {
+            const container = document.getElementById('serviceAreas');
+            container.innerHTML = serviceAreas.map((area, index) => `
+                <div class="service-area-tag">
+                    <i class="fas fa-map-marker-alt"></i>
+                    ${area}
+                    <button class="remove-btn" onclick="removeServiceArea(${index})">×</button>
+                </div>
+            `).join('');
+        }
+        
+        function sendDataToParent() {
+            const data = {
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                province: document.getElementById('province').value,
+                postalCode: document.getElementById('postalCode').value,
+                country: document.getElementById('country').value,
+                serviceAreas: serviceAreas
+            };
+            
+            // Send to parent window
+            if (window.parent) {
+                window.parent.postMessage({ type: 'LOCATION_DATA', data: data }, '*');
+            }
+        }
+        
+        // Send data on any input change
+        document.addEventListener('input', sendDataToParent);
+    </script>
+</body>
+</html>

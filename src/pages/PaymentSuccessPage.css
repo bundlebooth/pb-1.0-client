@@ -1,0 +1,278 @@
+.payment-success-page {
+  min-height: 100vh;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.payment-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ebebeb;
+  padding: 48px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+.payment-card.verifying {
+  padding: 64px 48px;
+}
+
+.spinner-large {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top-color: #222222;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 24px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 36px;
+  background: #f0f0f0;
+}
+
+.icon-circle.success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+}
+
+.icon-circle.error {
+  background: #f0f0f0;
+  color: #222222;
+}
+
+.payment-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222222;
+  margin: 0 0 16px;
+}
+
+.payment-card p {
+  font-size: 16px;
+  color: #484848;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.success-message {
+  margin-bottom: 32px !important;
+}
+
+.booking-summary {
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 24px 0;
+  text-align: left;
+}
+
+.booking-summary h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #717171;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 16px;
+}
+
+.summary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item .label {
+  font-size: 14px;
+  color: #717171;
+}
+
+.summary-item .value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+}
+
+.summary-item.total {
+  border-top: 2px solid #ebebeb;
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.summary-item.total .label {
+  font-weight: 600;
+  color: #222222;
+}
+
+.summary-item.total .value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.confirmation-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 24px 0;
+  text-align: left;
+}
+
+.confirmation-note i {
+  font-size: 20px;
+  color: #222222;
+  flex-shrink: 0;
+}
+
+.confirmation-note p {
+  font-size: 14px;
+  color: #484848;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: #222222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #000000;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: white;
+  color: #222222;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #f7f7f7;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  color: #717171;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: #222222;
+  color: #222222;
+}
+
+.support-note {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #ebebeb;
+}
+
+.support-note p {
+  font-size: 14px;
+  color: #717171;
+}
+
+.support-note .link-btn {
+  background: none;
+  border: none;
+  color: #222222;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  text-decoration: underline;
+}
+
+.support-note .link-btn:hover {
+  color: #000000;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .payment-card {
+    padding: 32px 24px;
+  }
+
+  .payment-card h2 {
+    font-size: 24px;
+  }
+
+  .icon-circle {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,440 @@
+/* Consistent Panel Styles for Business Profile Management */
+
+.panel-container {
+  width: 100%;
+}
+
+.panel-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.panel-back-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.panel-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.panel-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.panel-description {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.panel-divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.5rem 0;
+}
+
+/* Section within panel */
+.panel-section {
+  margin-bottom: 1.5rem;
+}
+
+.panel-section:last-child {
+  margin-bottom: 0;
+}
+
+.panel-section-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.panel-section-description {
+  color: #6b7280;
+  font-size: 0.8rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Form elements */
+.panel-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.panel-label-required::after {
+  content: ' *';
+  color: #ef4444;
+}
+
+.panel-input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #111827;
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.panel-input:focus {
+  outline: none;
+  border-color: #5086E8;
+  box-shadow: 0 0 0 3px rgba(80, 134, 232, 0.1);
+}
+
+.panel-input::placeholder {
+  color: #9ca3af;
+}
+
+.panel-textarea {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #111827;
+  background: white;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.panel-textarea:focus {
+  outline: none;
+  border-color: #5086E8;
+  box-shadow: 0 0 0 3px rgba(80, 134, 232, 0.1);
+}
+
+.panel-select {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #111827;
+  background: white;
+  cursor: pointer;
+}
+
+.panel-select:focus {
+  outline: none;
+  border-color: #5086E8;
+  box-shadow: 0 0 0 3px rgba(80, 134, 232, 0.1);
+}
+
+/* Chip/Tag selection - Grey style matching MultiSelectTags */
+.panel-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.panel-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.panel-chip:hover {
+  background: #f3f4f6;
+}
+
+.panel-chip.selected {
+  background: #f3f4f6;
+}
+
+.panel-chip.selected .panel-chip-remove {
+  color: #6b7280;
+}
+
+.panel-chip-check {
+  display: none;
+  font-size: 0.75rem;
+}
+
+.panel-chip.selected .panel-chip-check {
+  display: inline;
+}
+
+/* Buttons */
+.panel-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: #5086E8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.panel-btn-primary:hover {
+  background: #4070D0;
+}
+
+.panel-btn-primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.panel-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.panel-btn-secondary:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.panel-btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem;
+  background: none;
+  color: #6b7280;
+  border: none;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.panel-btn-text:hover {
+  color: #ef4444;
+}
+
+/* Info/Status boxes */
+.panel-info-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #eff6ff;
+  border-radius: 8px;
+  color: #1e40af;
+  font-size: 0.875rem;
+}
+
+.panel-info-box i {
+  color: #5086E8;
+}
+
+.panel-empty-state {
+  text-align: center;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.panel-empty-state p {
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Toggle switch */
+.panel-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.panel-toggle-label {
+  font-weight: 500;
+  color: #111827;
+}
+
+.panel-toggle-description {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+/* Tabs */
+.panel-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+.panel-tab {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background: none;
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.2s;
+}
+
+.panel-tab:hover {
+  color: #374151;
+}
+
+.panel-tab.active {
+  color: #5086E8;
+  border-bottom-color: #5086E8;
+}
+
+/* Card list items */
+.panel-list-item {
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.panel-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.panel-list-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.panel-list-item-title {
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.panel-list-item-content {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Form row */
+.panel-form-row {
+  margin-bottom: 1rem;
+}
+
+.panel-form-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Loading spinner */
+.panel-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+/* Radio group */
+.panel-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.panel-radio-option {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 140px;
+}
+
+.panel-radio-option:hover {
+  border-color: #5086E8;
+}
+
+.panel-radio-option.selected {
+  border-color: #5086E8;
+  background: #eff6ff;
+}
+
+.panel-radio-option input {
+  margin-right: 0.5rem;
+}
+
+.panel-radio-option span {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+/* Add form */
+.panel-add-form {
+  padding: 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.panel-add-form-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 1rem 0;
+}
+
+/* Button group */
+.panel-btn-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}

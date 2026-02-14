@@ -1,0 +1,498 @@
+/* ReviewPage.css - Standalone review submission page styles */
+
+.review-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.review-page-card {
+  background: white;
+  border-radius: 16px;
+  padding: 48px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.review-page-card h2 {
+  margin: 24px 0 12px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.review-page-card p {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.review-page-card.success h2 {
+  color: #10b981;
+}
+
+/* Icon circles */
+.icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.icon-circle i {
+  font-size: 32px;
+}
+
+.icon-circle.error {
+  background: #fef2f2;
+}
+
+.icon-circle.error i {
+  color: #ef4444;
+}
+
+.icon-circle.success {
+  background: #ecfdf5;
+}
+
+.icon-circle.success i {
+  color: #10b981;
+}
+
+/* Spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.spinner-large {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #5e72e4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.action-buttons .btn-primary,
+.action-buttons .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.action-buttons .btn-primary {
+  background: #111827;
+  color: white;
+}
+
+.action-buttons .btn-primary:hover {
+  background: #1f2937;
+}
+
+.action-buttons .btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.action-buttons .btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+/* Review form container */
+.review-page-container {
+  max-width: 640px;
+  width: 100%;
+}
+
+.review-page-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.review-page-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.review-page-header p {
+  color: #6b7280;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* Booking info card */
+.review-booking-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.booking-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.booking-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50px;
+  padding-right: 16px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.booking-date .month {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.booking-date .day {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.booking-info {
+  flex: 1;
+}
+
+.booking-info .vendor-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #10b981;
+  margin: 0 0 4px;
+}
+
+.booking-info .service-name {
+  font-size: 14px;
+  color: #374151;
+  margin: 0 0 4px;
+}
+
+.booking-info .location {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.booking-info .location i {
+  font-size: 11px;
+}
+
+.vendor-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #10b981;
+}
+
+/* Review form card */
+.review-form-card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+/* Rating section */
+.rating-section {
+  margin-bottom: 24px;
+}
+
+.rating-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 12px;
+}
+
+.rating-section.main-rating {
+  text-align: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Star rating */
+.review-star-rating {
+  margin-bottom: 16px;
+}
+
+.review-star-rating .star-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.stars-container {
+  display: flex;
+  gap: 4px;
+}
+
+.review-star-rating.large .stars-container {
+  justify-content: center;
+  gap: 8px;
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #d1d5db;
+  padding: 2px;
+  transition: transform 0.1s, color 0.2s;
+}
+
+.review-star-rating.large .star-btn {
+  font-size: 36px;
+}
+
+.star-btn:hover {
+  transform: scale(1.15);
+}
+
+.star-btn.filled {
+  color: #5e72e4;
+}
+
+/* Form inputs */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #5e72e4;
+  box-shadow: 0 0 0 3px rgba(94, 114, 228, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Detailed ratings */
+.detailed-ratings {
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 10px;
+  margin-top: 24px;
+}
+
+.detailed-ratings h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 20px;
+}
+
+.ratings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 480px) {
+  .ratings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Recommend section */
+.recommend-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.recommend-section label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.recommend-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.recommend-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #6b7280;
+}
+
+.recommend-btn:hover {
+  border-color: #9ca3af;
+}
+
+.recommend-btn.yes.active {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #10b981;
+  border-width: 2px;
+}
+
+.recommend-btn.no.active {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #ef4444;
+  border-width: 2px;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.form-actions .btn-primary,
+.form-actions .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.form-actions .btn-primary {
+  background: #111827;
+  color: white;
+}
+
+.form-actions .btn-primary:hover:not(:disabled) {
+  background: #1f2937;
+}
+
+.form-actions .btn-primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.form-actions .btn-secondary {
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.form-actions .btn-secondary:hover {
+  background: #f3f4f6;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .review-page {
+    padding: 20px 16px;
+  }
+  
+  .review-page-card {
+    padding: 32px 24px;
+  }
+  
+  .review-form-card {
+    padding: 24px 20px;
+  }
+  
+  .detailed-ratings {
+    padding: 20px 16px;
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .form-actions .btn-primary,
+  .form-actions .btn-secondary {
+    width: 100%;
+  }
+}

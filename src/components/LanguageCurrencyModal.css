@@ -1,0 +1,230 @@
+/* Language & Currency Modal Styles */
+/* Now uses UniversalModal for backdrop/modal container */
+
+/* Tabs */
+.lcm-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 0 16px 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.lcm-tab {
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  margin-bottom: -1px;
+}
+
+.lcm-tab:hover {
+  color: #111827;
+}
+
+.lcm-tab-active {
+  color: #111827;
+  border-bottom-color: #111827;
+}
+
+/* Content */
+.lcm-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+}
+
+/* Translate Section */
+.lcm-translate-section {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid #e5e7eb;
+}
+
+.lcm-translate-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.lcm-translate-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lcm-translate-label {
+  font-weight: 600;
+  font-size: 15px;
+  color: #111827;
+  display: flex;
+  align-items: center;
+}
+
+.lcm-translate-desc {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Toggle Switch */
+.lcm-toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.lcm-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.lcm-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d1d5db;
+  transition: 0.3s;
+  border-radius: 28px;
+}
+
+.lcm-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.lcm-toggle input:checked + .lcm-toggle-slider {
+  background-color: #111827;
+}
+
+.lcm-toggle input:checked + .lcm-toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* Sections */
+.lcm-section {
+  margin-bottom: 24px;
+}
+
+.lcm-section:last-child {
+  margin-bottom: 0;
+}
+
+.lcm-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.lcm-section-desc {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 16px;
+  margin-top: -8px;
+}
+
+/* Options Grid */
+.lcm-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.lcm-currency-grid {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.lcm-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.lcm-option:hover {
+  border-color: #111827;
+  background: #fafafa;
+}
+
+.lcm-option-selected {
+  border-color: #111827;
+  border-width: 2px;
+  background: #fafafa;
+}
+
+.lcm-option-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.lcm-option-region {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Disabled currency options */
+.lcm-option-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f3f4f6;
+  position: relative;
+}
+
+.lcm-option-disabled:hover {
+  border-color: #e5e7eb;
+  background: #f3f4f6;
+}
+
+.lcm-option-disabled .lcm-option-name,
+.lcm-option-disabled .lcm-option-region {
+  color: #9ca3af;
+}
+
+.lcm-coming-soon {
+  font-size: 10px;
+  color: #9ca3af;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .lcm-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lcm-currency-grid {
+    grid-template-columns: 1fr;
+  }
+}
